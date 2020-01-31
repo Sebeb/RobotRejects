@@ -17,4 +17,8 @@ public class MotorObject : ActionObject
         wheelJoint.useMotor = false;
     }
 
+    public override void ConnectToObject(BuildableObject _otherObject)
+    {
+        throw new System.NotImplementedException();
+    }
 }
