@@ -222,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &567808263
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -324,6 +324,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &735710682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735710684}
+  - component: {fileID: 735710683}
+  - component: {fileID: 735710685}
+  m_Layer: 0
+  m_Name: Mouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &735710683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735710682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb87791c94c43e45a123ee74f0dfe5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 27262976
+  target: {fileID: 0}
+--- !u!4 &735710684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735710682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0390632, y: 0.14180355, z: -4.2539062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &735710685
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735710682}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &961451933
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +405,8 @@ GameObject:
   - component: {fileID: 961451935}
   - component: {fileID: 961451934}
   - component: {fileID: 961451937}
-  m_Layer: 0
+  - component: {fileID: 961451938}
+  m_Layer: 24
   m_Name: Wheel R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,6 +514,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.95
+--- !u!114 &961451938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961451933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1f0d2019b8d1848a71d79e1644a6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildPosition: {x: 0, y: 0, z: 0}
+  buildRotation: {x: 0, y: 0, z: 0, w: 0}
+  selected: 1
+  recordingInput: 0
+  actionKey: d
+  actionKeyDown: 0
+  wheelJoint: {fileID: 0}
+  wheelRb: {fileID: 961451934}
+  motorSpeed: -300
 --- !u!1 &1423505107
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,42 +546,29 @@ GameObject:
   - component: {fileID: 1423505111}
   - component: {fileID: 1423505110}
   - component: {fileID: 1423505109}
-  - component: {fileID: 1423505108}
   - component: {fileID: 1423505112}
-  - component: {fileID: 1423505113}
-  - component: {fileID: 1423505114}
-  - component: {fileID: 1423505115}
-  m_Layer: 0
+  - component: {fileID: 1423505108}
+  m_Layer: 21
   m_Name: TruckChassisSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!235 &1423505108
-WheelJoint2D:
+--- !u!114 &1423505108
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423505107}
   m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 961451934}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 1.5272217, y: -1.0878842}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: -100
-    m_MaximumMotorForce: 10000
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70ad8ecf7b0a8240a0d118e97aafbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildPosition: {x: 0, y: 0, z: 0}
+  buildRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!50 &1423505109
 Rigidbody2D:
   serializedVersion: 4
@@ -784,66 +862,6 @@ PolygonCollider2D:
       - {x: -0.24, y: 0.79999995}
       - {x: -0.22999999, y: 0.76}
       - {x: -0.21, y: 0.77}
---- !u!235 &1423505113
-WheelJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423505107}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 567808264}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -1.472394, y: -1.0878842}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: -100
-    m_MaximumMotorForce: 10000
---- !u!114 &1423505114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423505107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d1f0d2019b8d1848a71d79e1644a6c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selected: 1
-  recordingInput: 0
-  actionKey: 
-  actionKeyDown: 0
-  wheelJoint: {fileID: 1423505108}
-  motorSpeed: -100
---- !u!114 &1423505115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423505107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d1f0d2019b8d1848a71d79e1644a6c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selected: 1
-  recordingInput: 0
-  actionKey: 
-  actionKeyDown: 0
-  wheelJoint: {fileID: 1423505113}
-  motorSpeed: -100
 --- !u!1 &1484714216
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,3 +50,5 @@ Thumbs.db
 Assetspreferences.json
 ProjectSettings/InputManager.asset
 Assetslocalscores.json
+.vscode/*
+*VSCode*

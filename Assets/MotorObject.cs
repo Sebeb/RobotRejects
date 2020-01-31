@@ -5,20 +5,33 @@ using UnityEngine;
 public class MotorObject : ActionObject
 {
     public WheelJoint2D wheelJoint;
+    public Rigidbody2D wheelRb;
     public float motorSpeed;
 
     protected override void OnActionStart()
     {
-        wheelJoint.useMotor = true;
+        if (wheelJoint) { wheelJoint.useMotor = true; }
     }
 
     protected override void OnActionEnd()
     {
-        wheelJoint.useMotor = false;
+        if (wheelJoint) { wheelJoint.useMotor = false; }
     }
 
     public override void ConnectToObject(BuildableObject _otherObject)
     {
-        throw new System.NotImplementedException();
+        if (wheelJoint) { Disconnect(); }
+
+        wheelJoint = _otherObject.gameObject.AddComponent<WheelJoint2D>();
+        wheelJoint.connectedBody = wheelRb;
+        wheelJoint.motor = new JointMotor2D() { maxMotorTorque = 10000, motorSpeed = motorSpeed };
+        wheelJoint.useMotor = actionKeyDown;
+        wheelJoint.autoConfigureConnectedAnchor = false;
+        wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(transform.position);
+    }
+
+    public override void Disconnect()
+    {
+        Destroy(wheelJoint);
     }
 }
