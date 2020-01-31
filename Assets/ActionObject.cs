@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ActionObject : MonoBehaviour
+public abstract class ActionObject : BuildableObject
 {
     public bool selected = true, recordingInput;
     public string actionKey;
