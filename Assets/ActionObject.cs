@@ -17,7 +17,7 @@ public abstract class ActionObject : MonoBehaviour
 
     private void CheckActionKey()
     {
-        if (Input.GetKeyDown(actionKey))
+        if (Input.GetKey(actionKey))
         {
             if (!actionKeyDown)
             {

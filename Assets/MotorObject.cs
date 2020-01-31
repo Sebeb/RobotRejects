@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotorObject : MonoBehaviour
+public class MotorObject : ActionObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public WheelJoint2D wheelJoint;
+    public float motorSpeed;
+
+    protected override void OnActionStart()
     {
-        
+        wheelJoint.useMotor = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnActionEnd()
     {
-        
+        wheelJoint.useMotor = false;
     }
+
 }
