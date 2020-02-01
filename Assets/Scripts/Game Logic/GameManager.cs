@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance_;
@@ -12,13 +11,18 @@ public class GameManager : MonoBehaviour
     {
         get
         {
+            if (!instance_)
+            {
+
+                instance_ = (Instantiate(Resources.Load("GameManager")) as GameObject).GetComponent<GameManager>();
+            }
             return instance_;
         }
     }
 
     // Id of the current level in the array
     private int currentLevelId;
-    
+
     // Total number of levels in the game
     private int numOfLevels;
 
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
     private GameLevelData currentLevelData_;
     public GameLevelData currentLevelData
     {
-        get {return currentLevelData_;}
+        get { return currentLevelData_; }
     }
 
     // Name of MainMenu scene (for when we return after quitting/game-over)
@@ -35,7 +39,10 @@ public class GameManager : MonoBehaviour
     // Array of all GameLevels to be played
     //public string[] gameLevelNames;
     public GameLevelData[] gameLevelData;
-   
+
+    public bool playMode;
+    public delegate void GameEvent();
+    public GameEvent enterPlayMode, enterBuildMode;
 
     void Awake()
     {
@@ -50,19 +57,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playMode = !playMode;
+            if (playMode) { enterPlayMode?.Invoke(); }
+            else { enterBuildMode?.Invoke(); }
+        }
     }
-
 
     public void StartGame()
     {
@@ -70,12 +80,10 @@ public class GameManager : MonoBehaviour
         LoadNextLevel();
     }
 
-
     public void GameOver()
     {
 
     }
-
 
     public void LoadNextLevel()
     {

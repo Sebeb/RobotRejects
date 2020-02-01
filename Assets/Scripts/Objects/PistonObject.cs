@@ -8,7 +8,9 @@ public class PistonObject : ActionObject
     public Rigidbody2D targetA, targetB;
 
     public float extensionDistance;
-    private float retractedDistance;
+    public float retractedDistance;
+
+    public SpriteRenderer foregroundSpriteR;
 
     protected override void Update()
     {
@@ -22,6 +24,8 @@ public class PistonObject : ActionObject
             transform.position = pointA + (a2b * 0.5f);
             transform.localScale = transform.localScale.SetY(a2b.magnitude / retractedDistance);
             transform.eulerAngles = Vector3.forward * Vector2.SignedAngle(Vector2.down, a2b);
+            foregroundSpriteR.sortingOrder = spriteR.sortingOrder + 1;
+            foregroundSpriteR.transform.localScale = Vector3.one.SetY(1 / transform.localScale.y);
         }
     }
 
@@ -35,7 +39,7 @@ public class PistonObject : ActionObject
         if (joint) { joint.distance = retractedDistance; }
     }
 
-    public override void ConnectPivotToObject(BuildableObject _otherObject, PivotPoint _pivot)
+    public override void ConnectPivotToObject(BuildableObject _otherObject, PivotObject _pivot)
     {
         base.ConnectPivotToObject(_otherObject, _pivot);
 
@@ -67,7 +71,7 @@ public class PistonObject : ActionObject
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    public override void DisconnectPivot(PivotPoint _pivot)
+    public override void DisconnectPivot(PivotObject _pivot)
     {
         base.DisconnectPivot(_pivot);
 

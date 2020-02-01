@@ -9,14 +9,22 @@ public abstract class ActionObject : BuildableObject
     public string actionKey;
     public bool actionKeyDown;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        GameManager.instance.enterBuildMode += DisableActionKey;
+    }
+
     protected override void Update()
     {
         base.Update();
-        
+
         if (selected) { CheckRecordInput(); }
-        if (actionKey != "") { CheckActionKey(); }
+        if (actionKey != "" && GameManager.instance.playMode) { CheckActionKey(); }
     }
 
+    private void DisableActionKey() => actionKeyDown = false;
     private void CheckActionKey()
     {
         if (Input.GetKey(actionKey))
@@ -42,13 +50,19 @@ public abstract class ActionObject : BuildableObject
 
     private void CheckRecordInput()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) { recordingInput = !recordingInput; return; }
-
-        if (recordingInput && Input.anyKeyDown)
+        if (recordingInput)
         {
-            if (Input.inputString == "") { return; }
-            actionKey = Input.inputString;
-            recordingInput = false;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                actionKey = "";
+                recordingInput = false;
+            }
+            else if (Input.anyKeyDown)
+            {
+                if (Input.inputString == "" || Input.inputString == "space") { return; }
+                actionKey = Input.inputString;
+                recordingInput = false;
+            }
         }
     }
 }
