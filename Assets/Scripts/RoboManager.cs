@@ -16,7 +16,7 @@ public class RoboManager : MonoBehaviour
 
     private void OnEnterPlayMode()
     {
-        roboClone = Instantiate(roboParent);
+        roboClone = Instantiate(roboParent, roboParent.transform.position, roboParent.transform.rotation);
         roboParent.SetActive(false);
     }
 
