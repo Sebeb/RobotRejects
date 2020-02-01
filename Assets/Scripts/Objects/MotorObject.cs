@@ -18,7 +18,7 @@ public class MotorObject : ActionObject
         if (wheelJoint) { wheelJoint.useMotor = false; }
     }
 
-    public override void ConnectPivotToObject(BuildableObject _otherObject, PivotPoint _pivot)
+    public override void ConnectPivotToObject(BuildableObject _otherObject, PivotObject _pivot)
     {
         base.ConnectPivotToObject(_otherObject, _pivot);
 
@@ -30,7 +30,7 @@ public class MotorObject : ActionObject
         wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
     }
 
-    public override void DisconnectPivot(PivotPoint _pivot)
+    public override void DisconnectPivot(PivotObject _pivot)
     {
         base.DisconnectPivot(_pivot);
         
