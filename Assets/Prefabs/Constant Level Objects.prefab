@@ -480,14 +480,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1104605640223735120, guid: 83268066a0a7a1547a178ff7e856ba80,
         type: 3}
-<<<<<<< HEAD
-      propertyPath: m_DynamicOccludee
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1104605640223735120, guid: 83268066a0a7a1547a178ff7e856ba80,
-        type: 3}
-=======
->>>>>>> 195585aac005593b46cd9f3a618519225f1e9e5a
       propertyPath: m_ShapeTexture
       value: 
       objectReference: {fileID: 0}
