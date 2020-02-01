@@ -8,7 +8,7 @@ public class PistonObject : ActionObject
     public Rigidbody2D targetA, targetB;
 
     public float extensionDistance;
-    private float retractedDistance;
+    public float retractedDistance;
 
     public SpriteRenderer foregroundSpriteR;
 

@@ -30,7 +30,7 @@ public abstract class BuildableObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rbs = GetComponentsInChildren<Rigidbody2D>().Where(rb => rb.bodyType != RigidbodyType2D.Kinematic).ToArray();
-        if (rb.bodyType!= RigidbodyType2D.Kinematic) { rb.bodyType = GameManager.instance.playMode ? RigidbodyType2D.Dynamic : RigidbodyType2D.Static; }
+        if (GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic) { rb.bodyType = RigidbodyType2D.Dynamic; }
         col = GetComponent<Collider2D>();
         spriteR = GetComponent<SpriteRenderer>();
         selectionPriority = spriteR.sortingOrder;

@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     {
         get
         {
+            if (!instance_)
+            {
+
+                instance_ = (Instantiate(Resources.Load("GameManager")) as GameObject).GetComponent<GameManager>();
+            }
             return instance_;
         }
     }

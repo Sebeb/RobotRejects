@@ -15,7 +15,6 @@ public class GameLevel : MonoBehaviour
 
     public GameObject successTextPrefab;
 
-
     private void Awake()
     {
         if (buildZoneObject == null)
@@ -41,13 +40,11 @@ public class GameLevel : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
         OnLevelLoaded();
     }
-
 
     // Update is called once per frame
     void Update()
@@ -66,14 +63,12 @@ public class GameLevel : MonoBehaviour
         }
     }
 
-
     public void OnLevelLoaded()
     {
         GameManager gameManager = GameManager.instance;
         gameLevelData_ = gameManager.currentLevelData;
-        Debug.Log("Successfully loaded level " + gameLevelData_.sceneName);
+        if (gameLevelData_ != null) { Debug.Log("Successfully loaded level " + gameLevelData_.sceneName); }
     }
-
 
     public void OnLevelComplete()
     {

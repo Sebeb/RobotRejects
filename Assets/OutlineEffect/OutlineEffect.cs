@@ -223,19 +223,19 @@ namespace cakeslice
                                 else
                                     m.SetInt("_Culling", (int)UnityEngine.Rendering.CullMode.Off);
 
-                                commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
-                                MeshFilter mL = outline.GetComponent<MeshFilter>();
-                                if (mL)
-                                {
-                                    for (int i = 1; i < mL.sharedMesh.subMeshCount; i++)
-                                        commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
-                                }
-                                SkinnedMeshRenderer sMR = outline.GetComponent<SkinnedMeshRenderer>();
-                                if (sMR)
-                                {
-                                    for (int i = 1; i < sMR.sharedMesh.subMeshCount; i++)
-                                        commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
-                                }
+                                commandBuffer.DrawRenderer(outline.renderers[r], m, 0, 0);
+                                // MeshFilter mL = outline.renderers[r].GetComponent<MeshFilter>();
+                                // if (mL)
+                                // {
+                                //     for (int i = 1; i < mL.sharedMesh.subMeshCount; i++)
+                                //         commandBuffer.DrawRenderer(outline.renderers[r], m, i, 0);
+                                // }
+                                // SkinnedMeshRenderer sMR = outline.GetComponent<SkinnedMeshRenderer>();
+                                // if (sMR)
+                                // {
+                                //     for (int i = 1; i < sMR.sharedMesh.subMeshCount; i++)
+                                //         commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
+                                // }
                             }
                         }
                     }
