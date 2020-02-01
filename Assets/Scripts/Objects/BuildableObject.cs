@@ -21,6 +21,7 @@ public abstract class BuildableObject : MonoBehaviour
     protected bool pickedUp;
 
     [HideInInspector] public Rigidbody2D rb;
+    private Rigidbody2D[] rbs;
     [HideInInspector] public Collider2D col;
     [HideInInspector] public SpriteRenderer spriteR;
     private Outline outline;
@@ -28,6 +29,8 @@ public abstract class BuildableObject : MonoBehaviour
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rbs = GetComponentsInChildren<Rigidbody2D>().Where(rb => rb.bodyType != RigidbodyType2D.Kinematic).ToArray();
+        if (rb.bodyType!= RigidbodyType2D.Kinematic) { rb.bodyType = GameManager.instance.playMode ? RigidbodyType2D.Dynamic : RigidbodyType2D.Static; }
         col = GetComponent<Collider2D>();
         spriteR = GetComponent<SpriteRenderer>();
         selectionPriority = spriteR.sortingOrder;
@@ -72,10 +75,14 @@ public abstract class BuildableObject : MonoBehaviour
         print("Picked up " + gameObject.name);
 
         DisconnectAllPivots();
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0;
-        rb.angularDrag = 50;
-        rb.gravityScale = 0;
+        foreach (Rigidbody2D rb in rbs)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
+            rb.angularDrag = 50;
+            rb.gravityScale = 0;
+        }
         // rb.freezeRotation = true;
     }
 
@@ -84,11 +91,13 @@ public abstract class BuildableObject : MonoBehaviour
         if (!pickedUp) { return; }
         pickedUp = false;
         print("Dropped " + gameObject.name);
-
-        rb.freezeRotation = false;
-        rb.angularDrag = 0.1f;
-        rb.gravityScale = 1;
-        rb.bodyType = RigidbodyType2D.Static;
+        foreach (Rigidbody2D rb in rbs)
+        {
+            rb.freezeRotation = false;
+            rb.angularDrag = 0.1f;
+            rb.gravityScale = 1;
+            rb.bodyType = RigidbodyType2D.Static;
+        }
 
         for (int i = 0; i < pivots.Length; i++)
         {
