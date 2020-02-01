@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentLevelId < numOfLevels)
         {
+            playMode = false;
             currentLevelData_ = gameLevelData[currentLevelId++];
             currentLevelData_.UnlockLevel();
             //currentSceneName = gameLevelData[currentLevelId++].sceneName;
