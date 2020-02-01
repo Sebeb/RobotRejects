@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sprites/bodypart_001_car.png.meta
 guid: 45d13bcf194d4964abfa9f9711b345af
+=======
+guid: 13d8cb9af4c6eea44a9aae4bab897870
+>>>>>>> 195585aac005593b46cd9f3a618519225f1e9e5a:Assets/Sprites/bodypart_car_001.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

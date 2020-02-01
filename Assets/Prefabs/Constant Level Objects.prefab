@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialObjectArray: []
-  buildZoneObject: {fileID: 2577540010541277373}
   finishLine: {fileID: 3772403304405864116}
   successTextPrefab: {fileID: 7028210030330763709, guid: 37f39e9f271bbff4999a6d4de50efe0b,
     type: 3}
+  cameraSpeed: 10
 --- !u!1 &3772403302438130053
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,11 +480,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1104605640223735120, guid: 83268066a0a7a1547a178ff7e856ba80,
         type: 3}
+<<<<<<< HEAD
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1104605640223735120, guid: 83268066a0a7a1547a178ff7e856ba80,
         type: 3}
+=======
+>>>>>>> 195585aac005593b46cd9f3a618519225f1e9e5a
       propertyPath: m_ShapeTexture
       value: 
       objectReference: {fileID: 0}
@@ -695,12 +698,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83268066a0a7a1547a178ff7e856ba80, type: 3}
---- !u!1 &2577540010541277373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1702085964126154158, guid: 83268066a0a7a1547a178ff7e856ba80,
-    type: 3}
-  m_PrefabInstance: {fileID: 3772403302956895507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6629847236479802376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7519804381357297947, guid: 83268066a0a7a1547a178ff7e856ba80,
