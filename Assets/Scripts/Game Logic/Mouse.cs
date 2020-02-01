@@ -36,7 +36,7 @@ public class Mouse : MonoBehaviour
     private TargetJoint2D joint;
     private Rigidbody2D rb2d;
     private ActionObject actionTarget;
-    private bool recording { get { return actionTarget != null && actionTarget.recordingInput; } }
+    private bool recording { get { return actionTarget != null && actionTarget.recordingInput && !GameManager.instance.playMode; } }
 
     private void Awake()
     {
@@ -56,10 +56,10 @@ public class Mouse : MonoBehaviour
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition).SetZ(0);
         if (joint) { joint.target = transform.position; }
 
-        if (Input.GetMouseButtonDown(0)) { Pickup(); }
-        else if (Input.GetMouseButtonUp(0)) { Drop(); }
+        if (Input.GetMouseButton(0) && !joint) { Pickup(); }
+        else if (!Input.GetMouseButton(0) && joint) { Drop(); }
         else if (Input.GetMouseButtonDown(1)) { RecordKey(); }
-        else { CheckTarget(); }
+        else if (!joint) { CheckTarget(); }
         UpdateTooltip();
     }
 
@@ -73,17 +73,7 @@ public class Mouse : MonoBehaviour
 
     private void CheckTarget()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layerMask);
-
-        if (!hit)
-        {
-
-            target = null;
-            return;
-        }
-
-        target = BuildableObject.CheckForConnection(transform.position);
+        target = BuildableObject.CheckForConnection(transform.position, null, layerMask);
     }
 
     private void RecordKey()
@@ -96,9 +86,9 @@ public class Mouse : MonoBehaviour
 
     private void Pickup()
     {
-        if (joint) { Drop(); }
-
         if (!target) { return; }
+
+        if (joint != null) { Drop(); }
 
         target.Pickup();
 
@@ -113,9 +103,9 @@ public class Mouse : MonoBehaviour
     {
         if (target)
         {
-            Destroy(joint);
             target.Drop();
             target = null;
         }
+        if (joint) { Destroy(joint); }
     }
 }

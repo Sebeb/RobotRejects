@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RobotHead
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Default Buildable
   - 
   - 
   - 
@@ -27,11 +28,11 @@ TagManager:
   - 
   - 
   - Body
-  - 
+  - Strut
   - Pistons
   - Wheels
   - 
-  - 
+  - Head
   - 
   - Pivot
   - 

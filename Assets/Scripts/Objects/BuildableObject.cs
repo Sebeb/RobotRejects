@@ -25,10 +25,13 @@ public abstract class BuildableObject : MonoBehaviour
     [HideInInspector] public Collider2D col;
     [HideInInspector] public SpriteRenderer spriteR;
     private Outline outline;
+    private int defaultLayer;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        defaultLayer = gameObject.layer;
+        if (!GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic) { gameObject.layer = 8; }
         rbs = GetComponentsInChildren<Rigidbody2D>().Where(rb => rb.bodyType != RigidbodyType2D.Kinematic).ToArray();
         if (GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic) { rb.bodyType = RigidbodyType2D.Dynamic; }
         col = GetComponent<Collider2D>();
@@ -74,6 +77,8 @@ public abstract class BuildableObject : MonoBehaviour
         pickedUp = true;
         print("Picked up " + gameObject.name);
 
+        gameObject.layer = defaultLayer;
+
         DisconnectAllPivots();
         foreach (Rigidbody2D rb in rbs)
         {
@@ -91,6 +96,7 @@ public abstract class BuildableObject : MonoBehaviour
         if (!pickedUp) { return; }
         pickedUp = false;
         print("Dropped " + gameObject.name);
+
         foreach (Rigidbody2D rb in rbs)
         {
             rb.freezeRotation = false;
@@ -122,14 +128,14 @@ public abstract class BuildableObject : MonoBehaviour
     }
 
     public static BuildableObject CheckForConnection(PivotObject _pivot, GameObject _ignore = null) => CheckForConnection(_pivot.transform.position, _ignore);
-    public static BuildableObject CheckForConnection(Vector2 _pos, GameObject _ignore = null)
+    public static BuildableObject CheckForConnection(Vector2 _pos, GameObject _ignore = null, int _mask = ~0)
     {
-        Collider2D[] hit = Physics2D.OverlapPointAll(_pos);
+        Collider2D[] hit = Physics2D.OverlapPointAll(_pos, _mask);
 
         if (hit.Length == 0) { return null; }
 
         //Get the front most buildable object (which isn't this one)
-        BuildableObject otherObj = hit.Where(h => _ignore == null || h.gameObject != _ignore && !h.transform.IsChildOf(_ignore.transform))
+        BuildableObject otherObj = hit.Where(h => h.gameObject.GetComponent<BuildableObject>() != null && (_ignore == null || h.gameObject != _ignore && !h.transform.IsChildOf(_ignore.transform)))
             .Select(h => h.gameObject.GetComponent<BuildableObject>())
             .OrderByDescending(bo => bo.selectionPriority)
             .FirstOrDefault();

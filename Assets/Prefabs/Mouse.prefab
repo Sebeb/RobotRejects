@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8390001, y: 1.1229999}
+  m_AnchoredPosition: {x: 2.252, y: 2.98}
   m_SizeDelta: {x: 0.673, y: 0.951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2219195137067493231
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -214,8 +214,8 @@ PositionConstraint:
   m_GameObject: {fileID: 2219195137067493226}
   m_Enabled: 1
   m_Weight: 1
-  m_TranslationAtRest: {x: 1.709, y: 2.143, z: 4.2539062}
-  m_TranslationOffset: {x: 0.8390001, y: 1.1229999, z: 0}
+  m_TranslationAtRest: {x: 2.252, y: 2.98, z: 0}
+  m_TranslationOffset: {x: 2.252, y: 2.98, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -249,7 +249,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2219195137377077664}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.96, y: -0.7400001, z: -4.2539062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -272,9 +272,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 27262976
+    m_Bits: 98566400
   tooltipTMP: {fileID: 2219195137067493224}
   tooltipSR: {fileID: 2219195137383947679}
+  recordingColors:
+  - {r: 1, g: 0.6839622, b: 0.9040537, a: 1}
+  - {r: 0.7122642, g: 1, b: 0.74052393, a: 1}
+  - {r: 0.72156864, g: 0.9972736, b: 1, a: 1}
+  recordingColorSpeed: 10
 --- !u!50 &2219195137377077671
 Rigidbody2D:
   serializedVersion: 4
@@ -322,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 2219195137383947673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 2219195137377077670}
   m_RootOrder: 1
