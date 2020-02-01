@@ -122,7 +122,6 @@ public abstract class BuildableObject : MonoBehaviour
     }
 
     public static BuildableObject CheckForConnection(PivotObject _pivot, GameObject _ignore = null) => CheckForConnection(_pivot.transform.position, _ignore);
-
     public static BuildableObject CheckForConnection(Vector2 _pos, GameObject _ignore = null)
     {
         Collider2D[] hit = Physics2D.OverlapPointAll(_pos);
@@ -132,7 +131,7 @@ public abstract class BuildableObject : MonoBehaviour
         //Get the front most buildable object (which isn't this one)
         BuildableObject otherObj = hit.Where(h => _ignore == null || h.gameObject != _ignore && !h.transform.IsChildOf(_ignore.transform))
             .Select(h => h.gameObject.GetComponent<BuildableObject>())
-            .OrderBy(bo => -bo.selectionPriority)
+            .OrderByDescending(bo => bo.selectionPriority)
             .FirstOrDefault();
 
         // Collider2D otherCol = hit.FirstOrDefault(o => o.gameObject != gameObject && o.GetComponent<BuildableObject>() != null);

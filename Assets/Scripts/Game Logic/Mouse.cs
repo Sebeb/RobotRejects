@@ -28,11 +28,15 @@ public class Mouse : MonoBehaviour
         }
         get { return _target; }
     }
+
+    public Color[] recordingColors;
+    public float recordingColorSpeed;
     private BuildableObject _target;
 
     private TargetJoint2D joint;
     private Rigidbody2D rb2d;
     private ActionObject actionTarget;
+    private bool recording { get { return actionTarget != null && actionTarget.recordingInput; } }
 
     private void Awake()
     {
@@ -41,21 +45,30 @@ public class Mouse : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.playMode) { return; }
+        if (recording)
+        {
+            int colorId = (int)(Time.time * recordingColorSpeed) % recordingColors.Length;
+            tooltipSR.color = recordingColors[colorId];
+            return;
+        }
+
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition).SetZ(0);
         if (joint) { joint.target = transform.position; }
 
         if (Input.GetMouseButtonDown(0)) { Pickup(); }
         else if (Input.GetMouseButtonUp(0)) { Drop(); }
+        else if (Input.GetMouseButtonDown(1)) { RecordKey(); }
         else { CheckTarget(); }
         UpdateTooltip();
     }
 
     private void UpdateTooltip()
     {
-        if (actionTarget) { tooltipTMP.text = actionTarget.actionKey; }
+        if (actionTarget) { tooltipTMP.text = actionTarget.actionKey == "" || recording ? "?" : actionTarget.actionKey; }
         tooltipTMP.color = tooltipTMP.color.SetA(Mathf.MoveTowards(tooltipTMP.color.a, actionTarget != null ? 1 : 0, Time.deltaTime * 2.0f));
 
-        tooltipSR.color = tooltipSR.color.SetA(tooltipTMP.color.a);
+        tooltipSR.color = Color.white.SetA(tooltipTMP.color.a);
     }
 
     private void CheckTarget()
@@ -71,6 +84,14 @@ public class Mouse : MonoBehaviour
         }
 
         target = BuildableObject.CheckForConnection(transform.position);
+    }
+
+    private void RecordKey()
+    {
+        if (!actionTarget) { return; }
+
+        actionTarget.recordingInput = true;
+        tooltipTMP.text = "?";
     }
 
     private void Pickup()

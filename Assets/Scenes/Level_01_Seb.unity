@@ -318,11 +318,10 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: 3bab026df42df40a5a6b43d96aac577a, type: 3}
   m_Sprites:
-  - {fileID: 1887494081247492234, guid: d501f6d7fa84c4038b7449696f44ff38, type: 3}
   - {fileID: -4069628985407814602, guid: a4fef30bb3ca5463a9c33c123a81604a, type: 3}
   m_LocalAABB:
-    m_Center: {x: -3.945713, y: -3.3414893, z: -0.00502}
-    m_Extent: {x: 34.835228, y: 6.0571218, z: 0.00502}
+    m_Center: {x: -3.6926842, y: -3.0361943, z: -0.00501}
+    m_Extent: {x: 34.507538, y: 5.751827, z: 0.00501}
 --- !u!4 &1325008227
 Transform:
   m_ObjectHideFlags: 0
@@ -362,8 +361,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -38.16367, y: -8.789261}
-      - {x: -37.57091, y: 1.8486115}
+    - - {x: -38.162407, y: -8.788021}
+      - {x: -37.57739, y: 1.7110316}
+      - {x: -38.16892, y: 1.879736}
       - {x: -34.177155, y: 1.6719798}
       - {x: -32.43446, y: 1.5851749}
       - {x: -29.866432, y: 1.4613695}
@@ -403,10 +403,11 @@ PolygonCollider2D:
       - {x: 27.696154, y: 1.4624914}
       - {x: 28.61341, y: 1.4352005}
       - {x: 29.45698, y: 1.4217236}
-      - {x: 30.206793, y: 1.4244378}
-      - {x: 27.158438, y: -6.7575397}
-      - {x: -38.16237, y: -8.789221}
-      - {x: -38.16367, y: -8.789261}
+      - {x: 30.205078, y: 1.4232616}
+      - {x: 27.157589, y: -6.7563653}
+      - {x: -34.98834, y: -8.689298}
+      - {x: -37.330185, y: -8.762136}
+      - {x: -38.162407, y: -8.788021}
 --- !u!1001 &1438033311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -968,6 +969,76 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColorSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[0].g
+      value: 0.6839622
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[0].b
+      value: 0.9040537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[1].r
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[1].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[1].b
+      value: 0.74052393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[2].r
+      value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[2].g
+      value: 0.9972736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[2].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225952420520886145, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: recordingColors.Array.data[2].a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4255369669259309123, guid: b5535f147c2534b478015669740a1c93,
         type: 3}

@@ -50,13 +50,19 @@ public abstract class ActionObject : BuildableObject
 
     private void CheckRecordInput()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) { recordingInput = !recordingInput; return; }
-
-        if (recordingInput && Input.anyKeyDown)
+        if (recordingInput)
         {
-            if (Input.inputString == "" || Input.inputString == "space") { return; }
-            actionKey = Input.inputString;
-            recordingInput = false;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                actionKey = "";
+                recordingInput = false;
+            }
+            else if (Input.anyKeyDown)
+            {
+                if (Input.inputString == "" || Input.inputString == "space") { return; }
+                actionKey = Input.inputString;
+                recordingInput = false;
+            }
         }
     }
 }

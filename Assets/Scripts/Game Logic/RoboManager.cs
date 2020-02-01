@@ -14,6 +14,12 @@ public class RoboManager : MonoBehaviour
         GameManager.instance.enterBuildMode += OnEnterBuildMode;
     }
 
+    private void OnDisable()
+    {
+        GameManager.instance.enterPlayMode -= OnEnterPlayMode;
+        GameManager.instance.enterBuildMode -= OnEnterBuildMode;
+    }
+
     private void OnEnterPlayMode()
     {
         roboClone = Instantiate(roboParent, roboParent.transform.position, roboParent.transform.rotation);
