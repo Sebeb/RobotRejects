@@ -10,7 +10,7 @@ public class GameLevel : MonoBehaviour
 
     public BuildableObject[] initialObjectArray;
 
-    public GameObject startLine;
+    public GameObject buildZoneObject;
     public GameObject finishLine;
 
     public GameObject successTextPrefab;
@@ -18,9 +18,9 @@ public class GameLevel : MonoBehaviour
 
     private void Awake()
     {
-        if (startLine == null)
+        if (buildZoneObject == null)
         {
-            Debug.LogError("Cannot find StartLine in this level");
+            Debug.LogError("Cannot find BuildZone object in this level");
         }
 
         if (finishLine)
