@@ -9,8 +9,10 @@ public abstract class ActionObject : BuildableObject
     public string actionKey;
     public bool actionKeyDown;
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+        
         if (selected) { CheckRecordInput(); }
         if (actionKey != "") { CheckActionKey(); }
     }

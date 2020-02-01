@@ -10,7 +10,7 @@ public class Mouse : MonoBehaviour
 
     [ReadOnly] public BuildableObject target;
 
-    private DistanceJoint2D joint;
+    private TargetJoint2D joint;
     private Rigidbody2D rb2d;
 
     private void Awake()
@@ -21,6 +21,8 @@ public class Mouse : MonoBehaviour
     void Update()
     {
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition).SetZ(0);
+        if (joint) { joint.target = transform.position; }
+
         if (Input.GetMouseButtonDown(0)) { Pickup(); }
         else if (Input.GetMouseButtonUp(0)) { Drop(); }
     }
@@ -31,7 +33,7 @@ public class Mouse : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layerMask);
-        
+
         if (!hit) { return; }
 
         target = hit.collider.gameObject.GetComponent<BuildableObject>();
@@ -40,11 +42,11 @@ public class Mouse : MonoBehaviour
 
         target.Pickup();
 
-        joint = target.gameObject.AddComponent<DistanceJoint2D>();
+        joint = target.gameObject.AddComponent<TargetJoint2D>();
         joint.connectedBody = rb2d;
-        joint.distance = 0.05f;
-        joint.anchor = transform.position - target.transform.position;
-        joint.autoConfigureDistance = false;
+        // joint.distance = 0.05f;
+        joint.autoConfigureTarget = false;
+        joint.anchor = target.transform.InverseTransformPoint(transform.position);
     }
 
     private void Drop()

@@ -18,20 +18,22 @@ public class MotorObject : ActionObject
         if (wheelJoint) { wheelJoint.useMotor = false; }
     }
 
-    public override void ConnectToObject(BuildableObject _otherObject)
+    public override void ConnectPivotToObject(BuildableObject _otherObject, PivotPoint _pivot)
     {
-        if (wheelJoint) { Disconnect(); }
+        base.ConnectPivotToObject(_otherObject, _pivot);
 
         wheelJoint = _otherObject.gameObject.AddComponent<WheelJoint2D>();
         wheelJoint.connectedBody = wheelRb;
         wheelJoint.motor = new JointMotor2D() { maxMotorTorque = 10000, motorSpeed = motorSpeed };
         wheelJoint.useMotor = actionKeyDown;
         wheelJoint.autoConfigureConnectedAnchor = false;
-        wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(transform.position);
+        wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
     }
 
-    public override void Disconnect()
+    public override void DisconnectPivot(PivotPoint _pivot)
     {
+        base.DisconnectPivot(_pivot);
+        
         Destroy(wheelJoint);
     }
 }
