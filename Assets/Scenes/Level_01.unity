@@ -690,6 +690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Constant Level Objects
       objectReference: {fileID: 0}
+    - target: {fileID: 4225952420210233678, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4255369669259309123, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
       propertyPath: m_ShapeTexture
