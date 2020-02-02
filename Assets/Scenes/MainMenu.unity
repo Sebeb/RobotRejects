@@ -634,7 +634,7 @@ PrefabInstance:
     - target: {fileID: 6800469592015282183, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,
         type: 3}
       propertyPath: gameLevelData.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6800469592015282183, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,
         type: 3}
@@ -674,11 +674,21 @@ PrefabInstance:
     - target: {fileID: 6800469592015282183, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,
         type: 3}
       propertyPath: gameLevelData.Array.data[3].levelName
-      value: The end
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6800469592015282183, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,
         type: 3}
       propertyPath: gameLevelData.Array.data[3].levelNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800469592015282183, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,
+        type: 3}
+      propertyPath: gameLevelData.Array.data[4].sceneName
+      value: Level_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800469592015282183, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,
+        type: 3}
+      propertyPath: gameLevelData.Array.data[4].levelNumber
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6800469592015282184, guid: f82d7bf1ba13bd6458fe8d32b1033e2a,

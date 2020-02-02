@@ -149,7 +149,7 @@ MonoBehaviour:
   actionKeyDown: 0
   wheelJoint: {fileID: 0}
   motorSpeed: -350
-  breakingForce: 6500
+  breakingForce: 15000
 --- !u!1001 &4444014593671308555
 PrefabInstance:
   m_ObjectHideFlags: 0
