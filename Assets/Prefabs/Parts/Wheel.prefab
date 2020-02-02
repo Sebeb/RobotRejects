@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9161021322636730763}
   m_Layer: 24
   m_Name: Wheel
-  m_TagString: RobotHead
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,8 @@ MonoBehaviour:
   wheelJoint: {fileID: 0}
   motorSpeed: -350
   breakingForce: 15000
+  dampening: 0.9
+  frquency: 9
 --- !u!1001 &4444014593671308555
 PrefabInstance:
   m_ObjectHideFlags: 0

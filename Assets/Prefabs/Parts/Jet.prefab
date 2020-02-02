@@ -62,8 +62,9 @@ MonoBehaviour:
   actionKey: j
   actionKeyDown: 0
   joint: {fileID: 0}
-  initialForce: 100
-  continuousForce: 60
+  initialForce: 150
+  continuousForce: 120
+  breakingForce: Infinity
   boostingPS: {fileID: 6630191727715976327}
 --- !u!212 &1561584981376673449
 SpriteRenderer:

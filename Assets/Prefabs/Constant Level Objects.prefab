@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   successTextPrefab: {fileID: 7028210030330763709, guid: 37f39e9f271bbff4999a6d4de50efe0b,
     type: 3}
-  cameraSpeed: 25
+  cameraSpeed: 60
   cameraSizeMin: 40
   cameraSizeMax: 100
 --- !u!1 &3772403302438130053
