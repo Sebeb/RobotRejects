@@ -56,6 +56,13 @@ MonoBehaviour:
   col: {fileID: 0}
   spriteR: {fileID: 0}
   outline: {fileID: 0}
+  recordingKey: 0
+  enableInput: 0
+  actionKey: b
+  actionKeyDown: 0
+  inactiveBuoyancy: 0.5
+  activeBuoyancy: 1.5
+  glowTint: {r: 1, g: 0.3160377, b: 0.3160377, a: 1}
 --- !u!212 &132122707710713257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117,11 +124,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: -3
+  m_GravityScale: -1
   m_Material: {fileID: 6200000, guid: 2515167e60b39b746a7a65362f14643c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

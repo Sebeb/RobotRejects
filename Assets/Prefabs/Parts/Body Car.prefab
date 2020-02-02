@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3949843674143727393}
   - component: {fileID: 3949843674143727405}
   m_Layer: 21
-  m_Name: Car Body
+  m_Name: Body Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -320,9 +320,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivots: []
+  connectedBodies: []
   selectionPriority: 0
   buildPosition: {x: 0, y: 0, z: 0}
   buildRotation: {x: 0, y: 0, z: 0, w: 0}
   rb: {fileID: 0}
   col: {fileID: 0}
   spriteR: {fileID: 0}
+  outline: {fileID: 0}

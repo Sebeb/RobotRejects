@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 132122707710713256, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
       propertyPath: m_Name
-      value: Balloon
+      value: Balloon Led
       objectReference: {fileID: 0}
     - target: {fileID: 132122707710713257, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
@@ -250,6 +250,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f29a3016aa50e6d4099170af33fc91e6,
         type: 3}
+    - target: {fileID: 132122707710713258, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: glowTint.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 132122707710713258, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: glowTint.g
+      value: 0.5518868
+      objectReference: {fileID: 0}
+    - target: {fileID: 132122707710713258, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: glowTint.b
+      value: 0.5518868
+      objectReference: {fileID: 0}
+    - target: {fileID: 132122707710713258, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: glowTint.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4853568707887792454, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
       propertyPath: m_LocalPosition.x

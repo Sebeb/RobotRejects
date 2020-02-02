@@ -197,6 +197,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1561584981376673444, guid: e88549423be18894982af8230459fcf7,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.1264
+      objectReference: {fileID: 0}
     - target: {fileID: 1561584981376673446, guid: e88549423be18894982af8230459fcf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,6 +340,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 132122707710713252, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: m_Mass
+      value: 34.211945
+      objectReference: {fileID: 0}
     - target: {fileID: 132122707710713254, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -477,6 +487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car Body (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949843674143727404, guid: ecd5519ef9471d843a77bfb6239fcea4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 21.148254
       objectReference: {fileID: 0}
     - target: {fileID: 3949843674143727406, guid: ecd5519ef9471d843a77bfb6239fcea4,
         type: 3}
@@ -693,6 +708,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheel (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9161021322636730807, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.8352873
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790dbee15bdb84841a26e18b8a4dbd3a, type: 3}
 --- !u!1001 &761292287
@@ -702,6 +722,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8596307118630260167, guid: 0605930f5f48ea24c98488772dfbfe2c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1.4994
+      objectReference: {fileID: 0}
     - target: {fileID: 8596307118630260184, guid: 0605930f5f48ea24c98488772dfbfe2c,
         type: 3}
       propertyPath: m_Name
@@ -909,6 +934,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8596307118630260167, guid: 0605930f5f48ea24c98488772dfbfe2c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1.4994
+      objectReference: {fileID: 0}
     - target: {fileID: 8596307118630260184, guid: 0605930f5f48ea24c98488772dfbfe2c,
         type: 3}
       propertyPath: m_Name
@@ -1047,6 +1077,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1561584981376673444, guid: e88549423be18894982af8230459fcf7,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.1264
+      objectReference: {fileID: 0}
     - target: {fileID: 1561584981376673446, guid: e88549423be18894982af8230459fcf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1120,6 +1155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Strut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636891052578474955, guid: 0feb68107c6fb934badb18075b528421,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.6560001
       objectReference: {fileID: 0}
     - target: {fileID: 8636891052578474958, guid: 0feb68107c6fb934badb18075b528421,
         type: 3}
@@ -1722,6 +1762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7260625184464423891, guid: 2d1cb1ed749e88840a892febb08d626f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.516184
+      objectReference: {fileID: 0}
     - target: {fileID: 7260625184464423917, guid: 2d1cb1ed749e88840a892febb08d626f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1771,6 +1816,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7892558805004360741, guid: ec0a805623eb3da41a82e6045e5a931c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 4.475934
+      objectReference: {fileID: 0}
     - target: {fileID: 7892558805004360743, guid: ec0a805623eb3da41a82e6045e5a931c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1994,6 +2044,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1736634895583856980, guid: 9560fe5afe1a7724a8e5ca3d7d421c55,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3.7703772
+      objectReference: {fileID: 0}
     - target: {fileID: 1736634895583856983, guid: 9560fe5afe1a7724a8e5ca3d7d421c55,
         type: 3}
       propertyPath: m_Name
@@ -2048,6 +2103,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7718243172671150197, guid: 76a05c20e645daf4cb7e8a13c666ae1e,
+        type: 3}
+      propertyPath: m_Mass
+      value: 27.191286
+      objectReference: {fileID: 0}
     - target: {fileID: 7718243172671150199, guid: 76a05c20e645daf4cb7e8a13c666ae1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2190,6 +2250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205022048123509781, guid: 9d20d79624518eb42bee8bae3997a050,
+        type: 3}
+      propertyPath: m_Mass
+      value: 21.03304
       objectReference: {fileID: 0}
     - target: {fileID: 5205022048123509783, guid: 9d20d79624518eb42bee8bae3997a050,
         type: 3}

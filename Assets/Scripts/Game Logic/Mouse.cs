@@ -73,7 +73,7 @@ public class Mouse : MonoBehaviour
 
     private void UpdateTooltip()
     {
-        if (actionTarget) { tooltipTMP.text = actionTarget.actionKey == "" || recording ? "?" : actionTarget.actionKey; }
+        if (actionTarget) { tooltipTMP.text = actionTarget.actionKey == "" || recording ? "?" : actionTarget.actionKey.ToUpper(); }
         tooltipTMP.color = tooltipTMP.color.SetA(Mathf.MoveTowards(tooltipTMP.color.a, actionTarget != null ? 1 : 0, Time.deltaTime * 2.0f));
 
         tooltipSR.color = Color.white.SetA(tooltipTMP.color.a);

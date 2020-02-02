@@ -8,7 +8,7 @@ PolygonCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5205022048123509779}
   m_Enabled: 1
-  m_Density: 1
+  m_Density: 1.3
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -45,7 +45,12 @@ PrefabInstance:
     - target: {fileID: 3949843674143727402, guid: ecd5519ef9471d843a77bfb6239fcea4,
         type: 3}
       propertyPath: m_Name
-      value: Car Body
+      value: Body Piano
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949843674143727404, guid: ecd5519ef9471d843a77bfb6239fcea4,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3949843674143727406, guid: ecd5519ef9471d843a77bfb6239fcea4,
         type: 3}
