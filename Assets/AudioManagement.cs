@@ -8,6 +8,7 @@ public class AudioManagement : MonoBehaviour
     public AudioSource master;
     public AudioSource[] slaves;
 
+    //public AudioClip[] clips;
 
     private IEnumerator SyncSources()
     {
@@ -19,5 +20,16 @@ public class AudioManagement : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void playTrack(int trackNumber)
+    {
+        //slaves[trackNumber].GetComponent<AudioClip>();
+        slaves[trackNumber].Play();
+    }
+    public void stopTrack(int trackNumber)
+    {
+        //slaves[trackNumber].GetComponent<AudioClip>().Stop();
+        slaves[trackNumber].Stop();
     }
 }
