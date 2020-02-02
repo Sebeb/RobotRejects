@@ -504,7 +504,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-  m_SpriteShape: {fileID: 11400000, guid: 18082d4b1dde54612b6ce63fd49c9014, type: 2}
+  m_SpriteShape: {fileID: 11400000, guid: db99ea596a0fb4a43a68a7f97d461c0e, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
   m_SplineDetail: 16
@@ -560,12 +560,12 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 3bab026df42df40a5a6b43d96aac577a, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: 9cf6a3bbcab6ddf47b3658a7c0c97fb6, type: 3}
   m_Sprites:
-  - {fileID: -4069628985407814602, guid: a4fef30bb3ca5463a9c33c123a81604a, type: 3}
+  - {fileID: 2410620027283643045, guid: b51c1e2a03940d1498bae4fd3de00915, type: 3}
   m_LocalAABB:
-    m_Center: {x: -2.1678467, y: -27.199505, z: -0.00501}
-    m_Extent: {x: 134.69992, y: 33.445007, z: 0.00501}
+    m_Center: {x: -1.8679047, y: -27.197002, z: -0.00501}
+    m_Extent: {x: 134.39996, y: 33.44751, z: 0.00501}
 --- !u!4 &1325008227
 Transform:
   m_ObjectHideFlags: 0
@@ -606,45 +606,44 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -134.68025, y: -60.11822}
-      - {x: -136.24155, y: -0.39015076}
-      - {x: -136.86166, y: 0.37555748}
-      - {x: 13.574694, y: 1.9456997}
-      - {x: 14.019614, y: 1.9430403}
-      - {x: 15.65489, y: 1.9553107}
-      - {x: 18.103834, y: 1.9874301}
-      - {x: 18.982365, y: 2.0026011}
-      - {x: 20.667953, y: 2.0406156}
-      - {x: 21.472517, y: 2.0615966}
-      - {x: 22.71912, y: 2.101447}
-      - {x: 23.931175, y: 2.1491382}
-      - {x: 25.08201, y: 2.205373}
-      - {x: 26.144947, y: 2.270856}
-      - {x: 27.093307, y: 2.3462903}
-      - {x: 28.844389, y: 2.5287611}
-      - {x: 30.56107, y: 2.747775}
-      - {x: 32.248722, y: 2.9961708}
-      - {x: 33.91271, y: 3.2667856}
-      - {x: 35.55839, y: 3.5524583}
-      - {x: 38.816364, y: 4.1403313}
-      - {x: 40.43939, y: 4.428207}
-      - {x: 42.06558, y: 4.7024913}
-      - {x: 43.700325, y: 4.956023}
-      - {x: 45.348988, y: 5.18164}
-      - {x: 47.016933, y: 5.3721805}
-      - {x: 48.709526, y: 5.52048}
-      - {x: 50.432144, y: 5.6193767}
-      - {x: 52.19014, y: 5.6617093}
-      - {x: 54.962418, y: 5.6555376}
-      - {x: 59.06051, y: 5.613878}
-      - {x: 64.25957, y: 5.542052}
-      - {x: 70.334785, y: 5.4453835}
-      - {x: 77.06129, y: 5.3291926}
-      - {x: 84.52882, y: 5.1928525}
-      - {x: 92.221504, y: 5.0468335}
-      - {x: 99.91412, y: 4.896548}
-      - {x: 107.606674, y: 4.742808}
-      - {x: 118.50691, y: 4.5202203}
-      - {x: 128.11984, y: 4.3191857}
+      - {x: -136.26172, y: 0.3818295}
+      - {x: 12.974736, y: 1.9394476}
+      - {x: 14.761167, y: 1.9477296}
+      - {x: 16.674116, y: 1.9665296}
+      - {x: 18.982365, y: 2.0026112}
+      - {x: 20.218042, y: 2.0288928}
+      - {x: 21.472517, y: 2.061607}
+      - {x: 22.71912, y: 2.101457}
+      - {x: 23.931175, y: 2.149148}
+      - {x: 25.08201, y: 2.205383}
+      - {x: 26.144947, y: 2.2708662}
+      - {x: 27.093307, y: 2.3463006}
+      - {x: 28.844387, y: 2.528771}
+      - {x: 30.56107, y: 2.747785}
+      - {x: 32.24872, y: 2.9961803}
+      - {x: 33.912704, y: 3.2667956}
+      - {x: 35.558388, y: 3.5524683}
+      - {x: 38.816364, y: 4.140341}
+      - {x: 40.439384, y: 4.4282165}
+      - {x: 42.06558, y: 4.702501}
+      - {x: 43.700325, y: 4.9560328}
+      - {x: 45.348988, y: 5.18165}
+      - {x: 47.01693, y: 5.3721905}
+      - {x: 48.709526, y: 5.5204897}
+      - {x: 50.432144, y: 5.6193867}
+      - {x: 52.19014, y: 5.661719}
+      - {x: 54.962418, y: 5.6555476}
+      - {x: 59.06051, y: 5.613888}
+      - {x: 64.25957, y: 5.542062}
+      - {x: 70.334785, y: 5.445393}
+      - {x: 77.06129, y: 5.329202}
+      - {x: 84.52882, y: 5.192862}
+      - {x: 91.568886, y: 5.059556}
+      - {x: 99.91412, y: 4.896558}
+      - {x: 105.98367, y: 4.775704}
+      - {x: 112.59416, y: 4.641758}
+      - {x: 120.427444, y: 4.480286}
+      - {x: 127.33992, y: 4.3357177}
       - {x: 130.68393, y: 4.263571}
       - {x: 132.53206, y: -60.644512}
       - {x: -121.69572, y: -60.143795}
@@ -768,8 +767,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
+      propertyPath: m_Sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
       propertyPath: m_ShapeTexture
       value: 
+      objectReference: {fileID: 2800000, guid: 9cf6a3bbcab6ddf47b3658a7c0c97fb6, type: 3}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_Sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 2410620027283643045, guid: b51c1e2a03940d1498bae4fd3de00915,
+        type: 3}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Center.x
+      value: 9.414093
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Center.y
+      value: -51.58777
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Center.z
+      value: -0.00503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Extent.x
+      value: 285.6272
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Extent.y
+      value: 143.3128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Extent.z
+      value: 0.00503
       objectReference: {fileID: 0}
     - target: {fileID: 7792299832050998926, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
