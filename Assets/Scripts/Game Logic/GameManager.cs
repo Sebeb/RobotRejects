@@ -11,11 +11,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if (!instance_)
-            {
-
-                instance_ = (Instantiate(Resources.Load("GameManager")) as GameObject).GetComponent<GameManager>();
-            }
+            if (!instance_ && !shuttingDown) { instance_ = (Instantiate(Resources.Load("GameManager"))as GameObject).GetComponent<GameManager>(); }
             return instance_;
         }
     }
@@ -43,6 +39,10 @@ public class GameManager : MonoBehaviour
     public bool playMode;
     public delegate void GameEvent();
     public GameEvent enterPlayMode, enterBuildMode;
+
+    public static Mouse mouse;
+
+    private static bool shuttingDown = false;
 
     void Awake()
     {
@@ -101,6 +101,11 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No more scenes to be loaded");
             SceneManager.LoadScene(mainMenuSceneName, LoadSceneMode.Single);
         }
+    }
+
+    private void OnDestroy()
+    {
+        shuttingDown = true;
     }
 
 }

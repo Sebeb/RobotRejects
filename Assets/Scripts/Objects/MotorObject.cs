@@ -5,7 +5,6 @@ using UnityEngine;
 public class MotorObject : ActionObject
 {
     public WheelJoint2D wheelJoint;
-    public Rigidbody2D wheelRb;
     public float motorSpeed;
 
     protected override void OnActionStart()
@@ -23,7 +22,7 @@ public class MotorObject : ActionObject
         base.ConnectPivotToObject(_otherObject, _pivot);
 
         wheelJoint = _otherObject.gameObject.AddComponent<WheelJoint2D>();
-        wheelJoint.connectedBody = wheelRb;
+        wheelJoint.connectedBody = rb;
         wheelJoint.motor = new JointMotor2D() { maxMotorTorque = 10000, motorSpeed = motorSpeed };
         wheelJoint.useMotor = actionKeyDown;
         wheelJoint.autoConfigureConnectedAnchor = false;

@@ -44,7 +44,7 @@ namespace cakeslice
 
         private void Awake()
         {
-            renderers = GetComponentsInChildren<Renderer>();
+            renderers = GetComponentsInChildren<Renderer>().Where(r => r as ParticleSystemRenderer == null).ToArray();
         }
 
         void OnEnable()

@@ -42,7 +42,6 @@ public class StrutObject : BuildableObject
             targetB = _otherObject.rb;
             joint.connectedBody = targetB;
             joint.connectedAnchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
-            print(_otherObject.transform.InverseTransformPoint(_pivot.transform.position));
             joint.autoConfigureDistance = false;
         }
     }

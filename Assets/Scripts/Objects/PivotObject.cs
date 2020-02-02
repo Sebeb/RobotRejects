@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PivotObject : BuildableObject
+public class PivotObject : MonoBehaviour
 {
-    public Transform transform { get { return feedbackSprite.transform; } }
+    public BuildableObject body;
     public SpriteRenderer feedbackSprite;
     public Joint2D joint;
-    public BuildableObject connectedObject;
-
-    protected override void Awake()
+    public BuildableObject connectedBody
     {
-        base.Awake();
+        get { return _connectedBody; }
+        set
+        {
+            if (_connectedBody == value) { return; }
+            if (_connectedBody && _connectedBody.connectedBodies.Contains(body)) { _connectedBody.connectedBodies.Remove(body); }
+            _connectedBody = value;
+            if (_connectedBody && !_connectedBody.connectedBodies.Contains(body)) { _connectedBody.connectedBodies.Add(body); }
+        }
+    }
+    [SerializeField, HideInInspector] private BuildableObject _connectedBody;
 
+    protected void Awake()
+    {
         feedbackSprite = GetComponent<SpriteRenderer>();
     }
-
-    public override void ConnectPivotToObject(BuildableObject _otherObject, PivotObject _pivot) { }
-
-    public override void DisconnectPivot(PivotObject _pivot) { }
-
-    public override void DisconnectAllPivots() { }
 }

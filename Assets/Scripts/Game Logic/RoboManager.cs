@@ -12,6 +12,19 @@ public class RoboManager : MonoBehaviour
     {
         GameManager.instance.enterPlayMode += OnEnterPlayMode;
         GameManager.instance.enterBuildMode += OnEnterBuildMode;
+        roboParent = gameObject.AddChild("Parts");
+    }
+
+    private void Start()
+    {
+        //Gather the robots;
+        foreach (BuildableObject bo in GameObject.FindObjectsOfType<BuildableObject>())
+        {
+            if (bo.transform.parent == null)
+            {
+                bo.transform.parent = roboParent.transform;
+            }
+        }
     }
 
     private void OnDisable()
