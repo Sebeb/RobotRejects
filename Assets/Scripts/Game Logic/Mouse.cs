@@ -44,7 +44,12 @@ public class Mouse : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         GameManager.mouse = this;
+        GameManager.instance.enterBuildMode += Enable;
+        GameManager.instance.enterPlayMode += Disable;
     }
+
+    private void Enable() => gameObject.SetActive(true);
+    private void Disable() => gameObject.SetActive(false);
 
     void Update()
     {

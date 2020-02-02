@@ -25,6 +25,13 @@ public class RoboManager : MonoBehaviour
                 bo.transform.parent = roboParent.transform;
             }
         }
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Reset"))
+        {
+            if (go.transform.parent == null)
+            {
+                go.transform.parent = roboParent.transform;
+            }
+        }
     }
 
     private void OnDisable()

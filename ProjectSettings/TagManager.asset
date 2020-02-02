@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RobotHead
   - BuildZone
+  - Reset
   layers:
   - Default
   - TransparentFX

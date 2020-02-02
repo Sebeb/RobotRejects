@@ -115,7 +115,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 9161021322636730804}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 43571acf74c188d48bc5eb1c911ffe25, type: 2}
+  m_Material: {fileID: 6200000, guid: 7dda9cefb3908604ea49d86e433449d8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -135,18 +135,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivots: []
+  connectedBodies: []
   selectionPriority: 0
   buildPosition: {x: 0, y: 0, z: 0}
   buildRotation: {x: 0, y: 0, z: 0, w: 0}
   rb: {fileID: 0}
   col: {fileID: 0}
   spriteR: {fileID: 0}
-  selected: 1
-  recordingInput: 0
+  recordingKey: 0
+  enableInput: 0
   actionKey: d
   actionKeyDown: 0
   wheelJoint: {fileID: 0}
-  wheelRb: {fileID: 9161021322636730807}
   motorSpeed: -300
 --- !u!1001 &4444014593671308555
 PrefabInstance:
