@@ -5,7 +5,7 @@ using UnityEngine;
 public class MotorObject : ActionObject
 {
     public WheelJoint2D wheelJoint;
-    public float motorSpeed, breakingForce = Mathf.Infinity;
+    public float motorSpeed, breakingForce = Mathf.Infinity, dampening = 0.9f, frquency = 9;
 
     protected override void OnActionStart()
     {
@@ -27,6 +27,7 @@ public class MotorObject : ActionObject
         wheelJoint.useMotor = actionKeyDown;
         wheelJoint.autoConfigureConnectedAnchor = false;
         wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
+        wheelJoint.frquency = frquency;
         wheelJoint.breakForce = breakingForce;
     }
 

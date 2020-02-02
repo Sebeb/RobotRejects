@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PP_01
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 8212635680029350907}
   - {fileID: 2922139124391294590}
   - {fileID: 4054111967150514545}
 --- !u!114 &2922139124391294590
@@ -33,7 +32,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 1
+    overrideState: 0
     value: 1
   externalLut:
     overrideState: 1
@@ -69,7 +68,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -9
+    value: 9.4
   tint:
     overrideState: 1
     value: -8
@@ -81,13 +80,13 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 0
+    value: 23.3
   brightness:
     overrideState: 1
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.64
+    value: 0.85
   contrast:
     overrideState: 1
     value: 0
@@ -1348,59 +1347,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.13
+    value: 0.174
   size:
     overrideState: 1
-    value: 1.11
+    value: 0.3
   lumContrib:
     overrideState: 1
-    value: 0.8
---- !u!114 &8212635680029350907
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
-  m_Name: AmbientOcclusion
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  mode:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 1
-  color:
-    overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
-  ambientOnly:
-    overrideState: 1
-    value: 1
-  noiseFilterTolerance:
-    overrideState: 1
     value: 0
-  blurTolerance:
-    overrideState: 1
-    value: -4.6
-  upsampleTolerance:
-    overrideState: 1
-    value: -12
-  thicknessModifier:
-    overrideState: 1
-    value: 2.1
-  directLightingStrength:
-    overrideState: 1
-    value: 0
-  radius:
-    overrideState: 1
-    value: 0.25
-  quality:
-    overrideState: 1
-    value: 2

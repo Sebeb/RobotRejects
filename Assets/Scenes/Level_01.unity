@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 61fc65dd05508ff4bbe1263468fd0fea, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 3949843674143727406, guid: ecd5519ef9471d843a77bfb6239fcea4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3949843674143727406, guid: ecd5519ef9471d843a77bfb6239fcea4,
         type: 3}
@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 6960592443047411695, guid: 02c989209546fb74eb38bf58e50319c1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6960592443047411695, guid: 02c989209546fb74eb38bf58e50319c1,
         type: 3}
@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 9161021322636730761, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9161021322636730761, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
         type: 3}
@@ -654,6 +654,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1990745555, guid: b5535f147c2534b478015669740a1c93, type: 3}
+      propertyPath: antialiasingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772403303081869457, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -667,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 3772403303081869457, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.81543
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3772403303081869457, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
@@ -692,7 +696,7 @@ PrefabInstance:
     - target: {fileID: 3772403303081869457, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3772403303081869457, guid: b5535f147c2534b478015669740a1c93,
         type: 3}
@@ -728,6 +732,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520324804422628757, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299830445646139, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299830587316122, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299831121455751, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299831619428438, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299831689410166, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832027046271, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_ShapeTexture
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832050998926, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792299832122136585, guid: b5535f147c2534b478015669740a1c93,
+        type: 3}
+      propertyPath: m_TranslationOffset.z
+      value: 6.8328857
       objectReference: {fileID: 0}
     - target: {fileID: 7821299072622974370, guid: b5535f147c2534b478015669740a1c93,
         type: 3}

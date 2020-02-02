@@ -31,6 +31,7 @@ public abstract class BuildableObject : MonoBehaviour
 
     protected virtual void Awake()
     {
+        transform.position = transform.position.SetZ(0);
         rb = GetComponent<Rigidbody2D>();
         defaultGravity = rb.gravityScale;
         defaultLayer = gameObject.layer;
