@@ -27,6 +27,8 @@ public class GameLevel : MonoBehaviour
 
     private float origCameraSize_;
 
+    private Vector3 origCameraPosition_;
+
     private float lastMouseScrollDelta_;
 
     private GameObject robotHead_ { get { return HeadObject.activeHead.gameObject; } }
@@ -51,6 +53,7 @@ public class GameLevel : MonoBehaviour
             if (mainCamera_)
             {
                 origCameraSize_ = mainCamera_.orthographicSize;
+                origCameraPosition_ = mainCameraObject_.transform.position;
                 cameraTargetSize_ = origCameraSize_;
                 cameraTargetPosition_ = mainCamera_.transform.position;
             }
@@ -197,7 +200,7 @@ public class GameLevel : MonoBehaviour
         if (levelComplete_ == false)
         {
             cameraTargetSize_ = origCameraSize_;
-            cameraTargetPosition_ = new Vector3(buildZone_.transform.position.x, buildZone_.transform.position.y, mainCameraObject_.transform.position.z);
+            cameraTargetPosition_ = origCameraPosition_;
         }
     }
 

@@ -62,8 +62,8 @@ MonoBehaviour:
   actionKey: j
   actionKeyDown: 0
   joint: {fileID: 0}
-  initialForce: 0
-  continuousForce: 30
+  initialForce: 100
+  continuousForce: 60
   boostingPS: {fileID: 6630191727715976327}
 --- !u!212 &1561584981376673449
 SpriteRenderer:
@@ -127,7 +127,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 2.1264
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
