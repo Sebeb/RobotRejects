@@ -8,11 +8,13 @@ public class StrutObject : BuildableObject
     public float breakForce;
     public Rigidbody2D targetA, targetB;
 
+    public float breakingForce = Mathf.Infinity;
+
     protected override void Update()
     {
         base.Update();
 
-        if (targetA && targetB) //Move and scale spring between anchors
+        if (targetA && targetB && joint) //Move and scale spring between anchors
         {
             Vector2 pointA = targetA.transform.TransformPoint(joint.anchor);
             Vector2 pointB = targetB.transform.TransformPoint(joint.connectedAnchor);
@@ -36,6 +38,7 @@ public class StrutObject : BuildableObject
             joint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
             joint.enableCollision = true;
             joint.breakForce = breakForce;
+            joint.breakForce = breakingForce;
         }
         else
         {

@@ -10,13 +10,15 @@ public class PistonObject : ActionObject
     public float extensionDistance;
     public float retractedDistance;
 
+    public float breakingForce = Mathf.Infinity;
+
     public SpriteRenderer foregroundSpriteR;
 
     protected override void Update()
     {
         base.Update();
 
-        if (targetA && targetB) //Move and scale spring between anchors
+        if (targetA && targetB && joint) //Move and scale spring between anchors
         {
             Vector2 pointA = targetA.transform.TransformPoint(joint.anchor);
             Vector2 pointB = targetB.transform.TransformPoint(joint.connectedAnchor);
@@ -52,6 +54,7 @@ public class PistonObject : ActionObject
             joint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
             joint.enableCollision = true;
             joint.autoConfigureDistance = joint.autoConfigureConnectedAnchor = false;
+            joint.breakForce = breakingForce;
         }
         else
         {
@@ -75,6 +78,6 @@ public class PistonObject : ActionObject
     {
         base.DisconnectPivot(_pivot);
 
-        Destroy(joint);
+        if (joint) { Destroy(joint); }
     }
 }

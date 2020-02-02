@@ -6,6 +6,7 @@ public class JetObject : ActionObject
 {
     public FixedJoint2D joint;
     public float initialForce, continuousForce;
+    public float breakingForce = Mathf.Infinity;
 
     public ParticleSystem boostingPS;
     private ParticleSystem.EmissionModule boostingEmission;
@@ -47,13 +48,14 @@ public class JetObject : ActionObject
         joint.connectedBody = rb;
         joint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
         joint.autoConfigureConnectedAnchor = false;
+        joint.breakForce = breakingForce;
     }
 
     public override void DisconnectPivot(PivotObject _pivot)
     {
         base.DisconnectPivot(_pivot);
 
-        Destroy(joint);
+        if (joint) { Destroy(joint); }
     }
 
 }

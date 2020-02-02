@@ -5,7 +5,7 @@ using UnityEngine;
 public class MotorObject : ActionObject
 {
     public WheelJoint2D wheelJoint;
-    public float motorSpeed;
+    public float motorSpeed, breakingForce = Mathf.Infinity;
 
     protected override void OnActionStart()
     {
@@ -27,12 +27,13 @@ public class MotorObject : ActionObject
         wheelJoint.useMotor = actionKeyDown;
         wheelJoint.autoConfigureConnectedAnchor = false;
         wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
+        wheelJoint.breakForce = breakingForce;
     }
 
     public override void DisconnectPivot(PivotObject _pivot)
     {
         base.DisconnectPivot(_pivot);
-        
-        Destroy(wheelJoint);
+
+        if (wheelJoint) { Destroy(wheelJoint); }
     }
 }

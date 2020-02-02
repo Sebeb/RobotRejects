@@ -145,6 +145,11 @@ public class GameLevel : MonoBehaviour
                     {
                         cameraTargetPosition_ = new Vector3(cameraTargetPosition_.x, cameraTargetPosition_.y + cameraSpeed * Time.deltaTime, cameraTargetPosition_.z);
                     }
+                    if (Input.GetMouseButton(2))
+                    {
+                        cameraTargetPosition_ += new Vector3(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+                    }
+
 
                     //cameraTargetSize_ *= (Input.mouseScrollDelta.y - lastMouseScrollDelta_);
                     cameraTargetSize_ = Mathf.Clamp(cameraTargetSize_ - Input.mouseScrollDelta.y, cameraSizeMin, cameraSizeMax);
