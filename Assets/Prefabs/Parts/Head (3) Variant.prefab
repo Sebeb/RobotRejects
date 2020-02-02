@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.16
       objectReference: {fileID: 0}
+    - target: {fileID: 5033640335345600207, guid: 02c989209546fb74eb38bf58e50319c1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6960592443047411680, guid: 02c989209546fb74eb38bf58e50319c1,
         type: 3}
       propertyPath: m_Sprite
@@ -27,6 +32,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Head (3) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960592443047411693, guid: 02c989209546fb74eb38bf58e50319c1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 4.3446903
       objectReference: {fileID: 0}
     - target: {fileID: 6960592443047411694, guid: 02c989209546fb74eb38bf58e50319c1,
         type: 3}

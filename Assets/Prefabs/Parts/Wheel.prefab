@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 2.8352873
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -148,7 +148,8 @@ MonoBehaviour:
   actionKey: d
   actionKeyDown: 0
   wheelJoint: {fileID: 0}
-  motorSpeed: -300
+  motorSpeed: -350
+  breakingForce: 6500
 --- !u!1001 &4444014593671308555
 PrefabInstance:
   m_ObjectHideFlags: 0
