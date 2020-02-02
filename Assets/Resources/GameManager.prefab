@@ -69,4 +69,8 @@ MonoBehaviour:
     levelName: 
     levelNumber: 4
     requiredScore: 0
+  - sceneName: Level_07
+    levelName: 
+    levelNumber: 4
+    requiredScore: 0
   playMode: 0
