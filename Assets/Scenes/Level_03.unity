@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -98.13449, y: -53.913467, z: 0}
+    - position: {x: -104.84903, y: -98.128456, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: -75.139786, y: 1.4439068, z: 0}
+    - position: {x: -107.03378, y: 2.0035849, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -591,7 +591,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 169.34354, y: -49.44754, z: 0}
+    - position: {x: 215.78564, y: -106.53525, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -660,8 +660,8 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -4069628985407814602, guid: a4fef30bb3ca5463a9c33c123a81604a, type: 3}
   m_LocalAABB:
-    m_Center: {x: 57.2258, y: -21.186428, z: -0.00501}
-    m_Extent: {x: 155.36029, y: 32.72704, z: 0.00501}
+    m_Center: {x: 54.075783, y: -47.49732, z: -0.00501}
+    m_Extent: {x: 161.70988, y: 59.03793, z: 0.00501}
 --- !u!4 &1325008227
 Transform:
   m_ObjectHideFlags: 0
@@ -701,10 +701,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -98.13449, y: -53.913467}
-      - {x: -75.43276, y: 0.73861295}
-      - {x: -75.73978, y: 1.4417104}
-      - {x: 12.969162, y: 1.9394064}
+    - - {x: -104.84903, y: -98.128456}
+      - {x: -107.00595, y: 0.7278284}
+      - {x: -107.63378, y: 2.0050817}
+      - {x: 12.9697, y: 1.9394404}
       - {x: 15.734419, y: 2.1170328}
       - {x: 18.62727, y: 2.3062916}
       - {x: 22.033796, y: 2.533425}
@@ -784,10 +784,10 @@ PolygonCollider2D:
       - {x: 205.00764, y: 4.238832}
       - {x: 210.1232, y: 4.1368012}
       - {x: 211.97351, y: 4.096198}
-      - {x: 169.34354, y: -49.44754}
-      - {x: -85.13704, y: -53.696457}
-      - {x: -94.72662, y: -53.85657}
-      - {x: -98.13449, y: -53.913467}
+      - {x: 215.78564, y: -106.53525}
+      - {x: -89.26856, y: -98.53697}
+      - {x: -100.7639, y: -98.235565}
+      - {x: -104.84903, y: -98.128456}
 --- !u!1001 &1629328936
 PrefabInstance:
   m_ObjectHideFlags: 0

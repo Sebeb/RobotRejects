@@ -114,6 +114,11 @@ public class GameLevel : MonoBehaviour
         {
             levelTime_ += Time.deltaTime;
 
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                gameManager.LoadNextLevel();
+            }
+
             if (mainCamera_)
             {
                 // If in play mode, then camera follows robot head

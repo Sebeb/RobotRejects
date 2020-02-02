@@ -535,8 +535,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -78.98829, y: -96.681984}
-      - {x: -75.18883, y: 0.1937105}
+    - - {x: -82.43153, y: -128.30513}
+      - {x: -75.2327, y: -0.2091918}
       - {x: -75.73977, y: 1.4397991}
       - {x: -64.86492, y: 1.5331959}
       - {x: -53.170494, y: 1.6294132}
@@ -623,10 +623,10 @@ PolygonCollider2D:
       - {x: 142.40393, y: -40.281944}
       - {x: 240.54431, y: -40.490635}
       - {x: 239.9443, y: -40.490532}
-      - {x: 250.2757, y: -102.077705}
-      - {x: -62.988503, y: -96.94417}
-      - {x: -74.79322, y: -96.75073}
-      - {x: -78.98829, y: -96.681984}
+      - {x: 257.47522, y: -136.51877}
+      - {x: -65.91459, y: -128.70425}
+      - {x: -78.10087, y: -128.40977}
+      - {x: -82.43153, y: -128.30513}
 --- !u!114 &650200517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -78.98829, y: -96.681984, z: 0}
+    - position: {x: -82.43153, y: -128.30513, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 250.2757, y: -102.077705, z: 0}
+    - position: {x: 257.47522, y: -136.51877, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -792,8 +792,8 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -4069628985407814602, guid: a4fef30bb3ca5463a9c33c123a81604a, type: 3}
   m_LocalAABB:
-    m_Center: {x: 85.643715, y: -46.626278, z: -0.00501}
-    m_Extent: {x: 164.632, y: 55.451427, z: 0.00501}
+    m_Center: {x: 87.521835, y: -63.84681, z: -0.00501}
+    m_Extent: {x: 169.95337, y: 72.67196, z: 0.00501}
 --- !u!4 &650200519
 Transform:
   m_ObjectHideFlags: 0
