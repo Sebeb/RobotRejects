@@ -52,7 +52,7 @@ public class GameLevel : MonoBehaviour
             mainCamera_ = mainCameraObject_.GetComponent<Camera>();
             if (mainCamera_)
             {
-                origCameraSize_ = mainCamera_.orthographicSize;
+                origCameraSize_ = mainCamera_.fieldOfView;
                 origCameraPosition_ = mainCameraObject_.transform.position;
                 cameraTargetSize_ = origCameraSize_;
                 cameraTargetPosition_ = mainCamera_.transform.position;
@@ -166,7 +166,7 @@ public class GameLevel : MonoBehaviour
         lastMouseScrollDelta_ = Input.mouseScrollDelta.y;
 
         float maxChange = cameraSpeed*Time.deltaTime;
-        mainCamera_.orthographicSize = Mathf.MoveTowards(mainCamera_.orthographicSize, cameraTargetSize_, maxChange);
+        mainCamera_.fieldOfView = Mathf.MoveTowards(mainCamera_.fieldOfView, cameraTargetSize_, maxChange);
         mainCameraObject_.transform.position = Vector3.MoveTowards(mainCameraObject_.transform.position, cameraTargetPosition_, maxChange);
     }
 
