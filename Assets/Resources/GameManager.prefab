@@ -49,4 +49,20 @@ MonoBehaviour:
     levelName: The beginning
     levelNumber: 1
     requiredScore: 0
+  - sceneName: Level_02
+    levelName: 
+    levelNumber: 2
+    requiredScore: 0
+  - sceneName: Level_03
+    levelName: 
+    levelNumber: 3
+    requiredScore: 0
+  - sceneName: Level_04
+    levelName: 
+    levelNumber: 4
+    requiredScore: 0
+  - sceneName: Level_05
+    levelName: 
+    levelNumber: 4
+    requiredScore: 0
   playMode: 0

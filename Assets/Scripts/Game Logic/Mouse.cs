@@ -48,6 +48,12 @@ public class Mouse : MonoBehaviour
         GameManager.instance.enterPlayMode += Disable;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.instance.enterBuildMode -= Enable;
+        GameManager.instance.enterPlayMode -= Disable;
+    }
+
     private void Enable() => gameObject.SetActive(true);
     private void Disable() => gameObject.SetActive(false);
 

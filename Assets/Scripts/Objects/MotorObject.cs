@@ -27,7 +27,7 @@ public class MotorObject : ActionObject
         wheelJoint.useMotor = actionKeyDown;
         wheelJoint.autoConfigureConnectedAnchor = false;
         wheelJoint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
-        wheelJoint.frquency = frquency;
+        wheelJoint.suspension = new JointSuspension2D() { frequency = frquency, dampingRatio = dampening };
         wheelJoint.breakForce = breakingForce;
     }
 
