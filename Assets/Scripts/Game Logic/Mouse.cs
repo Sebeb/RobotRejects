@@ -18,11 +18,11 @@ public class Mouse : MonoBehaviour
         {
             if (target == value) { return; }
 
-            if (target) { _target.SetHighlight(null); }
+            if (target) { _target.SetHighlight(false); }
             _target = value;
             if (target)
             {
-                target.SetHighlight(Outlines.Highlighted);
+                target.SetHighlight(true);
             }
             actionTarget = target as ActionObject;
         }
@@ -33,17 +33,14 @@ public class Mouse : MonoBehaviour
     public float recordingColorSpeed;
     private BuildableObject _target;
 
-    public bool objectPickedUp { get { return joint; } }
-
     private TargetJoint2D joint;
     private Rigidbody2D rb2d;
     private ActionObject actionTarget;
-    private bool recording { get { return actionTarget != null && actionTarget.recordingKey && !GameManager.instance.playMode; } }
+    private bool recording { get { return actionTarget != null && actionTarget.recordingInput && !GameManager.instance.playMode; } }
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        GameManager.mouse = this;
     }
 
     void Update()
@@ -83,7 +80,7 @@ public class Mouse : MonoBehaviour
     {
         if (!actionTarget) { return; }
 
-        actionTarget.recordingKey = true;
+        actionTarget.recordingInput = true;
         tooltipTMP.text = "?";
     }
 

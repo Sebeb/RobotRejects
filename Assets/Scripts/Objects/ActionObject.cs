@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class ActionObject : BuildableObject
 {
-    public bool recordingKey, enableInput;
+    public bool selected = true, recordingInput;
     public string actionKey;
     public bool actionKeyDown;
 
@@ -20,8 +20,8 @@ public abstract class ActionObject : BuildableObject
     {
         base.Update();
 
-        if (recordingKey) { CheckRecordKey(); }
-        if (enableInput && actionKey != "" && GameManager.instance.playMode) { CheckActionKey(); }
+        if (selected) { CheckRecordInput(); }
+        if (actionKey != "" && GameManager.instance.playMode) { CheckActionKey(); }
     }
 
     private void DisableActionKey() => actionKeyDown = false;
@@ -48,20 +48,20 @@ public abstract class ActionObject : BuildableObject
     protected abstract void OnActionStart();
     protected abstract void OnActionEnd();
 
-    private void CheckRecordKey()
+    private void CheckRecordInput()
     {
-        if (recordingKey)
+        if (recordingInput)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 actionKey = "";
-                recordingKey = false;
+                recordingInput = false;
             }
             else if (Input.anyKeyDown)
             {
                 if (Input.inputString == "" || Input.inputString == "space") { return; }
                 actionKey = Input.inputString;
-                recordingKey = false;
+                recordingInput = false;
             }
         }
     }

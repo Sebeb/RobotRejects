@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 132120832
+    m_Bits: 98566400
   tooltipTMP: {fileID: 2219195137067493224}
   tooltipSR: {fileID: 2219195137383947679}
   recordingColors:

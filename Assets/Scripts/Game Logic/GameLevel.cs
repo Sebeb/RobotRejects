@@ -12,6 +12,7 @@ public class GameLevel : MonoBehaviour
 
     public BuildableObject[] initialObjectArray;
 
+
     public GameObject finishLine;
 
     public GameObject successTextPrefab;
@@ -27,12 +28,19 @@ public class GameLevel : MonoBehaviour
 
     private float origCameraSize_;
 
-    private GameObject robotHead_ { get { return HeadObject.activeHead.gameObject; } }
+    private GameObject robotHead_;
 
     private GameObject buildZone_;
 
+
     private void Awake()
     {
+        robotHead_ = GameObject.FindWithTag("RobotHead");
+        if (robotHead_ == null)
+        {
+            Debug.LogError("Cannot find RobotHead object");
+        }
+
         buildZone_ = GameObject.FindWithTag("BuildZone");
         if (buildZone_ == null)
         {
@@ -76,6 +84,7 @@ public class GameLevel : MonoBehaviour
         }
     }
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,12 +95,13 @@ public class GameLevel : MonoBehaviour
         gameManager.enterPlayMode += OnPlayModeActivated;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         GameManager gameManager = GameManager.instance;
 
-        // Debug.Log("RobotHead : " + robotHead_.transform.position);
+        Debug.Log("RobotHead : " + robotHead_.transform.position);
 
         if (levelComplete_)
         {
@@ -112,23 +122,24 @@ public class GameLevel : MonoBehaviour
                 {
                     if (robotHead_)
                     {
-                        mainCameraObject_.transform.position =
+                        mainCameraObject_.transform.position = 
                             new Vector3(robotHead_.transform.position.x, robotHead_.transform.position.y, mainCameraObject_.transform.position.z);
                     }
                 }
-                // Otherwise allow player to move (unless they're dragging an object)
-                else if (!GameManager.mouse.objectPickedUp)
+                // Otherwise allow player to
+                else
                 {
                     Vector3 oldPosition = mainCameraObject_.transform.position;
+
                     if (Input.GetKey(KeyCode.LeftArrow))
                     {
-                        Vector3 newPosition = new Vector3(oldPosition.x - cameraSpeed * Time.deltaTime, oldPosition.y, oldPosition.z);
+                        Vector3 newPosition = new Vector3(oldPosition.x - cameraSpeed*Time.deltaTime, oldPosition.y, oldPosition.z);
                         mainCameraObject_.transform.position = newPosition;
                     }
 
                     if (Input.GetKey(KeyCode.RightArrow))
                     {
-                        Vector3 newPosition = new Vector3(oldPosition.x + cameraSpeed * Time.deltaTime, oldPosition.y, oldPosition.z);
+                        Vector3 newPosition = new Vector3(oldPosition.x + cameraSpeed*Time.deltaTime, oldPosition.y, oldPosition.z);
                         mainCameraObject_.transform.position = newPosition;
                     }
 
@@ -136,10 +147,12 @@ public class GameLevel : MonoBehaviour
 
                 // [TODO] Mouse wheel for zooming in and out
 
+
             }
 
         }
     }
+
 
     public void OnLevelLoaded()
     {
@@ -150,6 +163,7 @@ public class GameLevel : MonoBehaviour
             Debug.Log("Successfully loaded level " + gameLevelData_.sceneName);
         }
     }
+
 
     public void OnLevelComplete()
     {
@@ -165,16 +179,18 @@ public class GameLevel : MonoBehaviour
         //gameManager.LoadNextLevel();
     }
 
+
     public void OnBuildModeActivated()
     {
         if (levelComplete_ == false)
         {
             cameraSize_ = origCameraSize_;
             mainCamera_.orthographicSize = cameraSize_;
-            mainCameraObject_.transform.position =
+            mainCameraObject_.transform.position = 
                 new Vector3(buildZone_.transform.position.x, buildZone_.transform.position.y, mainCameraObject_.transform.position.z);
         }
     }
+
 
     public void OnPlayModeActivated()
     {
