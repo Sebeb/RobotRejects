@@ -14,6 +14,7 @@ using UnityEngine;
 public abstract class BuildableObject : MonoBehaviour
 {
     public PivotObject[] pivots;
+    public List<BuildableObject> connectedBodies = new List<BuildableObject>();
     [HideInInspector] public int selectionPriority;
     [HideInInspector] public Vector3 buildPosition;
     [HideInInspector] public Quaternion buildRotation;
@@ -26,10 +27,12 @@ public abstract class BuildableObject : MonoBehaviour
     [HideInInspector] public SpriteRenderer spriteR;
     private Outline outline;
     private int defaultLayer;
+    private float defaultGravity;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        defaultGravity = rb.gravityScale;
         defaultLayer = gameObject.layer;
         if (!GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic) { gameObject.layer = 8; }
         rbs = GetComponentsInChildren<Rigidbody2D>().Where(rb => rb.bodyType != RigidbodyType2D.Kinematic).ToArray();
@@ -37,7 +40,12 @@ public abstract class BuildableObject : MonoBehaviour
         col = GetComponent<Collider2D>();
         spriteR = GetComponent<SpriteRenderer>();
         selectionPriority = spriteR.sortingOrder;
+        spriteR.sortingOrder -= 10;
         pivots = GetComponentsInChildren<PivotObject>();
+        foreach (PivotObject pivot in pivots)
+        {
+            pivot.body = this;
+        }
     }
 
     protected virtual void Update()
@@ -45,15 +53,15 @@ public abstract class BuildableObject : MonoBehaviour
         if (pickedUp)
         {
             CheckPivotsForConnections();
-            RotateObject();
+            if (GameManager.mouse.target == this) { RotateObject(); }
         }
     }
 
     private void TryConnectPivotToObject(BuildableObject _otherObject, PivotObject _pivot) { if (_otherObject) { ConnectPivotToObject(_otherObject, _pivot); } }
     public virtual void ConnectPivotToObject(BuildableObject _otherObject, PivotObject _pivot)
     {
-        if (_pivot.connectedObject) { DisconnectPivot(_pivot); }
-        _pivot.connectedObject = _otherObject;
+        if (_pivot.connectedBody) { DisconnectPivot(_pivot); }
+        _pivot.connectedBody = _otherObject;
 
         spriteR.sortingOrder = selectionPriority = _otherObject.selectionPriority + 1;
         print("Connecting " + gameObject.name + " to " + _otherObject.gameObject.name);
@@ -68,10 +76,10 @@ public abstract class BuildableObject : MonoBehaviour
     }
     public virtual void DisconnectPivot(PivotObject _pivot)
     {
-        _pivot.connectedObject = null;
+        _pivot.connectedBody = null;
     }
 
-    public void Pickup()
+    public void Pickup(bool _alsoChildren = true)
     {
         if (pickedUp) { return; }
         pickedUp = true;
@@ -79,7 +87,6 @@ public abstract class BuildableObject : MonoBehaviour
 
         gameObject.layer = defaultLayer;
 
-        DisconnectAllPivots();
         foreach (Rigidbody2D rb in rbs)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
@@ -88,10 +95,19 @@ public abstract class BuildableObject : MonoBehaviour
             rb.angularDrag = 50;
             rb.gravityScale = 0;
         }
+
+        if (_alsoChildren)
+        {
+            DisconnectAllPivots();
+            foreach (BuildableObject connectedObject in GetAllConnectedObjects())
+            {
+                connectedObject.Pickup(false);
+            }
+        }
         // rb.freezeRotation = true;
     }
 
-    public void Drop()
+    public void Drop(bool _alsoChildren = true)
     {
         if (!pickedUp) { return; }
         pickedUp = false;
@@ -101,16 +117,22 @@ public abstract class BuildableObject : MonoBehaviour
         {
             rb.freezeRotation = false;
             rb.angularDrag = 0.1f;
-            rb.gravityScale = 1;
+            rb.gravityScale = defaultGravity;
             rb.bodyType = RigidbodyType2D.Static;
         }
 
-        for (int i = 0; i < pivots.Length; i++)
+        if (_alsoChildren)
         {
-            TryConnectPivotToObject(CheckForConnection(pivots[i], gameObject), pivots[i]);
-            pivots[i].feedbackSprite.color = Color.clear;
+            for (int i = 0; i < pivots.Length; i++)
+            {
+                TryConnectPivotToObject(CheckForConnection(pivots[i], gameObject), pivots[i]);
+                pivots[i].feedbackSprite.color = Color.clear;
+            }
+            foreach (BuildableObject connectedObject in GetAllConnectedObjects())
+            {
+                connectedObject.Drop(false);
+            }
         }
-
     }
 
     private void CheckPivotsForConnections()
@@ -123,8 +145,8 @@ public abstract class BuildableObject : MonoBehaviour
 
     private void RotateObject()
     {
-        if (Input.mouseScrollDelta.y != 0) { rb.angularVelocity = Mathf.Sign(Input.mouseScrollDelta.y) * 100; }
-        if (Input.GetAxis("Horizontal") != 0) { rb.angularVelocity = Mathf.Sign(Input.GetAxis("Horizontal")) * 100; }
+        if (Input.mouseScrollDelta.y != 0) { rb.angularVelocity = Mathf.Sign(Input.mouseScrollDelta.y) * 400; }
+        if (Input.GetAxis("Horizontal") != 0) { rb.angularVelocity = Mathf.Sign(-Input.GetAxis("Horizontal")) * 400; }
     }
 
     public static BuildableObject CheckForConnection(PivotObject _pivot, GameObject _ignore = null) => CheckForConnection(_pivot.transform.position, _ignore);
@@ -153,35 +175,52 @@ public abstract class BuildableObject : MonoBehaviour
 
     }
 
-    public void SetHighlight(bool _enabled)
+    protected Outlines? currnetOutline;
+    public virtual void SetHighlight(Outlines? _outlineType)
     {
+        if (_outlineType == currnetOutline) { return; }
+        currnetOutline = _outlineType;
+
         if (!outline) { outline = gameObject.AddComponent<Outline>(); }
 
-        if (!_enabled)
+        if (_outlineType == null)
         {
             outline.enabled = false;
             for (int i = 0; i < pivots.Length; i++)
             {
-                if (!pivots[i].connectedObject || !pivots[i].connectedObject.outline) { continue; }
+                if (!pivots[i].connectedBody) { continue; }
 
-                pivots[i].connectedObject.outline.enabled = false;
+                pivots[i].connectedBody.SetHighlight(null);
             }
         }
         else
         {
             outline.enabled = true;
-            outline.color = (int)Outlines.Highlighted;
+            outline.color = (int)_outlineType;
 
-            for (int i = 0; i < pivots.Length; i++)
+            if (_outlineType == Outlines.Highlighted)
             {
-                if (!pivots[i].connectedObject) { continue; }
+                for (int i = 0; i < pivots.Length; i++)
+                {
+                    if (!pivots[i].connectedBody) { continue; }
 
-                if (!pivots[i].connectedObject.outline) { pivots[i].connectedObject.outline = pivots[i].connectedObject.gameObject.AddComponent<Outline>(); }
-
-                pivots[i].connectedObject.outline.enabled = true;
-                pivots[i].connectedObject.outline.color = (int)Outlines.Connected;
+                    pivots[i].connectedBody.SetHighlight(Outlines.Connected);
+                }
             }
         }
+    }
+
+    protected BuildableObject[] GetAllConnectedObjects()
+    {
+        List<BuildableObject> BOs = new List<BuildableObject>(new BuildableObject[] { this });
+
+        for (int i = 0; i < BOs.Count; i++)
+        {
+            BOs.AddRange(BOs[i].pivots.Where(p => p.connectedBody != null && !BOs.Contains(p.connectedBody)).Select(p => p.connectedBody));
+            BOs.AddRange(BOs[i].connectedBodies.Where(b => b != null && !BOs.Contains(b)));
+        }
+        BOs.Remove(this);
+        return BOs.ToArray();
     }
 }
 

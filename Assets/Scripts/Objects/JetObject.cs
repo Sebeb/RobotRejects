@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeadObject : BuildableObject
+public class JetObject : ActionObject
 {
     public FixedJoint2D joint;
-    public static HeadObject activeHead;
+    public float initialForce, continuousForce;
 
-    private void OnEnable()
-    {
-        activeHead = this;
-    }
+    public ParticleSystem boostingPS;
+    private ParticleSystem.EmissionModule boostingEmission;
 
     protected void Start()
     {
+        boostingEmission = boostingPS.emission;
+        boostingEmission.enabled = false;
         if (GameManager.instance.playMode)
         {
             foreach (BuildableObject bo in GetAllConnectedObjects())
@@ -24,6 +24,21 @@ public class HeadObject : BuildableObject
         }
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        if (actionKeyDown) { rb.AddForce(transform.right * continuousForce); }
+    }
+
+    protected override void OnActionStart()
+    {
+        boostingEmission.enabled = true;
+        rb.AddForce(transform.right * initialForce, ForceMode2D.Impulse);
+    }
+
+    protected override void OnActionEnd() { boostingEmission.enabled = false; }
+
     public override void ConnectPivotToObject(BuildableObject _otherObject, PivotObject _pivot)
     {
         base.ConnectPivotToObject(_otherObject, _pivot);
@@ -31,6 +46,7 @@ public class HeadObject : BuildableObject
         joint = _otherObject.gameObject.AddComponent<FixedJoint2D>();
         joint.connectedBody = rb;
         joint.anchor = _otherObject.transform.InverseTransformPoint(_pivot.transform.position);
+        joint.autoConfigureConnectedAnchor = false;
     }
 
     public override void DisconnectPivot(PivotObject _pivot)
@@ -40,14 +56,4 @@ public class HeadObject : BuildableObject
         Destroy(joint);
     }
 
-    public override void SetHighlight(Outlines? _outlineType)
-    {
-        base.SetHighlight(_outlineType);
-        BuildableObject[] bOs = GetAllConnectedObjects();
-        for (int i = 0; i < bOs.Length; i++)
-        {
-            if (_outlineType == Outlines.Highlighted) { bOs[i].SetHighlight(Outlines.Connected); }
-            else { bOs[i].SetHighlight(null); }
-        }
-    }
 }

@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public delegate void GameEvent();
     public GameEvent enterPlayMode, enterBuildMode;
 
+    public static Mouse mouse;
+
     void Awake()
     {
         instance_ = this;

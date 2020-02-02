@@ -23,16 +23,16 @@
 */
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
-using System.Linq;
 using UnityEngine.VR;
 
 namespace cakeslice
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Camera))]
-    [ExecuteInEditMode]
+    // [ExecuteInEditMode]
     public class OutlineEffect : MonoBehaviour
     {
         private static OutlineEffect m_instance;
