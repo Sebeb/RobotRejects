@@ -38,7 +38,7 @@ RelativeJoint2D:
   m_MaxTorque: 10000
   m_CorrectionScale: 0.3
   m_AutoConfigureOffset: 0
-  m_LinearOffset: {x: -2.67, y: 2.09}
+  m_LinearOffset: {x: -2.2999992, y: 2.8}
   m_AngularOffset: 0
 --- !u!60 &1253786641
 PolygonCollider2D:
@@ -56,9 +56,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.58, y: 3.76}
-    newSize: {x: 10.3, y: 17.52}
+    pivot: {x: 0.5, y: 0.6889511}
+    oldSize: {x: 11.58, y: 6}
+    newSize: {x: 11.58, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -95,12 +95,12 @@ PrefabInstance:
     - target: {fileID: 4795827696771750935, guid: fe8ac48e9d93b4c41b3baffba064e63d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.67
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4795827696771750935, guid: fe8ac48e9d93b4c41b3baffba064e63d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.09
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 4795827696771750935, guid: fe8ac48e9d93b4c41b3baffba064e63d,
         type: 3}
@@ -178,11 +178,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 342220848, guid: 0f99c7c8543afa249bd1d5824365180e, type: 3}
       propertyPath: m_LinearOffset.x
-      value: 2.67
+      value: 1.9300003
       objectReference: {fileID: 0}
     - target: {fileID: 342220848, guid: 0f99c7c8543afa249bd1d5824365180e, type: 3}
       propertyPath: m_LinearOffset.y
-      value: 2.09
+      value: 2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 132122707710713252, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: m_Mass
+      value: 27.191286
       objectReference: {fileID: 0}
     - target: {fileID: 132122707710713254, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
@@ -248,8 +253,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f29a3016aa50e6d4099170af33fc91e6,
+      objectReference: {fileID: 21300000, guid: 1e68826a11d1f2d40a832a1cf10bf272,
         type: 3}
+    - target: {fileID: 132122707710713257, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 11.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 132122707710713257, guid: 0f99c7c8543afa249bd1d5824365180e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 132122707710713258, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
       propertyPath: glowTint.r
@@ -273,12 +288,12 @@ PrefabInstance:
     - target: {fileID: 4853568707887792454, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.67
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: 4853568707887792454, guid: 0f99c7c8543afa249bd1d5824365180e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.09
+      value: -2.78
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 132122707710713259, guid: 0f99c7c8543afa249bd1d5824365180e, type: 3}
