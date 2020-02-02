@@ -12,7 +12,7 @@ public class RoboManager : MonoBehaviour
     {
         GameManager.instance.enterPlayMode += OnEnterPlayMode;
         GameManager.instance.enterBuildMode += OnEnterBuildMode;
-        roboParent = gameObject.AddChild("Parts");
+        roboParent = gameObject.AddChild("Parts (Build Mode)");
     }
 
     private void Start()
@@ -43,6 +43,7 @@ public class RoboManager : MonoBehaviour
     private void OnEnterPlayMode()
     {
         roboClone = Instantiate(roboParent, roboParent.transform.position, roboParent.transform.rotation);
+        roboClone.name = "Parts (Play Mode)";
         roboParent.SetActive(false);
     }
 

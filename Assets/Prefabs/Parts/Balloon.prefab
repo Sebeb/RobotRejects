@@ -55,6 +55,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   col: {fileID: 0}
   spriteR: {fileID: 0}
+  outline: {fileID: 0}
 --- !u!212 &132122707710713257
 SpriteRenderer:
   m_ObjectHideFlags: 0

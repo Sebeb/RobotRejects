@@ -25,7 +25,7 @@ public abstract class BuildableObject : MonoBehaviour
     private Rigidbody2D[] rbs;
     [HideInInspector] public Collider2D col;
     [HideInInspector] public SpriteRenderer spriteR;
-    private Outline outline;
+    [HideInInspector] public Outline outline;
     private int defaultLayer;
     private float defaultGravity;
 
@@ -36,7 +36,15 @@ public abstract class BuildableObject : MonoBehaviour
         defaultLayer = gameObject.layer;
         if (!GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic) { gameObject.layer = 8; }
         rbs = GetComponentsInChildren<Rigidbody2D>().Where(rb => rb.bodyType != RigidbodyType2D.Kinematic).ToArray();
-        if (GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic) { rb.bodyType = RigidbodyType2D.Dynamic; }
+        if (GameManager.instance.playMode && rb.bodyType != RigidbodyType2D.Kinematic)
+        {
+            foreach (Rigidbody2D rb in rbs)
+            {
+
+                rb.bodyType = RigidbodyType2D.Dynamic;
+            }
+            if (outline) { Destroy(outline); }
+        }
         col = GetComponent<Collider2D>();
         spriteR = GetComponent<SpriteRenderer>();
         selectionPriority = spriteR.sortingOrder;
