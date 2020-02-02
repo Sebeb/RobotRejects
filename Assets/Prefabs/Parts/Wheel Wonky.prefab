@@ -7,7 +7,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736634895583856983}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -157,6 +157,22 @@ PolygonCollider2D:
       - {x: 0.545, y: 0.29999998}
       - {x: 0.305, y: 0.22}
       - {x: 0.155, y: 0.14}
+--- !u!70 &700935502
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736634895583856983}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 7dda9cefb3908604ea49d86e433449d8, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.95, y: 1.96}
+  m_Direction: 0
 --- !u!1001 &7438741964542470371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 9161021322636730804, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
         type: 3}
       propertyPath: m_Name
-      value: Wheel Wonky
+      value: Wheel
       objectReference: {fileID: 0}
     - target: {fileID: 9161021322636730804, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
         type: 3}
@@ -245,6 +261,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e30debd2ad8f0dd438f4ef52f45c51be,
         type: 3}
+    - target: {fileID: 9161021322636730807, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3.7703772
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9161021322636730760, guid: 790dbee15bdb84841a26e18b8a4dbd3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 790dbee15bdb84841a26e18b8a4dbd3a, type: 3}
