@@ -8,4 +8,4 @@ PhysicsMaterial2D:
   m_PrefabAsset: {fileID: 0}
   m_Name: Grippy + a bit bouncy
   friction: 100000
-  bounciness: 0.2
+  bounciness: 0.4
