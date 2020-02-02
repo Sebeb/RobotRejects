@@ -10,26 +10,31 @@ public class GameLevel : MonoBehaviour
 
     private GameLevelData gameLevelData_;
 
-    public BuildableObject[] initialObjectArray;
-
-    public GameObject finishLine;
-
     public GameObject successTextPrefab;
 
-    public float cameraSpeed = 10.0f;
+    public float cameraSpeed = 50.0f;
 
-    private Vector3 cameraOffset_;
+    public float cameraSizeMin = 1.0f;
+    public float cameraSizeMax = 20.0f;
+
+    private Vector3 cameraTargetPosition_;
 
     private GameObject mainCameraObject_;
+
     private Camera mainCamera_;
 
-    private float cameraSize_;
+    private float cameraTargetSize_;
 
     private float origCameraSize_;
+
+    private float lastMouseScrollDelta_;
 
     private GameObject robotHead_ { get { return HeadObject.activeHead.gameObject; } }
 
     private GameObject buildZone_;
+    
+    private GameObject finishLine_;
+
 
     private void Awake()
     {
@@ -46,7 +51,8 @@ public class GameLevel : MonoBehaviour
             if (mainCamera_)
             {
                 origCameraSize_ = mainCamera_.orthographicSize;
-                cameraSize_ = origCameraSize_;
+                cameraTargetSize_ = origCameraSize_;
+                cameraTargetPosition_ = mainCamera_.transform.position;
             }
             else
             {
@@ -58,9 +64,10 @@ public class GameLevel : MonoBehaviour
             Debug.LogError("Cannot find main camera object in scene");
         }
 
-        if (finishLine)
+        finishLine_ = GameObject.FindWithTag("Finish");
+        if (finishLine_)
         {
-            GoalScript goal = finishLine.GetComponent<GoalScript>();
+            GoalScript goal = finishLine_.GetComponent<GoalScript>();
             if (goal)
             {
                 goal.RegisterGameLevel(this);
@@ -84,14 +91,14 @@ public class GameLevel : MonoBehaviour
         GameManager gameManager = GameManager.instance;
         gameManager.enterBuildMode += OnBuildModeActivated;
         gameManager.enterPlayMode += OnPlayModeActivated;
+
+        lastMouseScrollDelta_ = Input.mouseScrollDelta.y;
     }
 
     // Update is called once per frame
     void Update()
     {
         GameManager gameManager = GameManager.instance;
-
-        // Debug.Log("RobotHead : " + robotHead_.transform.position);
 
         if (levelComplete_)
         {
@@ -106,14 +113,13 @@ public class GameLevel : MonoBehaviour
 
             if (mainCamera_)
             {
-
                 // If in play mode, then camera follows robot head
                 if (gameManager.playMode)
                 {
                     if (robotHead_)
                     {
-                        mainCameraObject_.transform.position =
-                            new Vector3(robotHead_.transform.position.x, robotHead_.transform.position.y, mainCameraObject_.transform.position.z);
+                        cameraTargetPosition_ = new Vector3(robotHead_.transform.position.x, robotHead_.transform.position.y, mainCameraObject_.transform.position.z);
+                        cameraTargetSize_ = Mathf.Clamp(cameraTargetSize_ - Input.mouseScrollDelta.y, cameraSizeMin, cameraSizeMax);
                     }
                 }
                 // Otherwise allow player to move (unless they're dragging an object)
@@ -122,23 +128,38 @@ public class GameLevel : MonoBehaviour
                     Vector3 oldPosition = mainCameraObject_.transform.position;
                     if (Input.GetKey(KeyCode.LeftArrow))
                     {
-                        Vector3 newPosition = new Vector3(oldPosition.x - cameraSpeed * Time.deltaTime, oldPosition.y, oldPosition.z);
-                        mainCameraObject_.transform.position = newPosition;
+                        cameraTargetPosition_ = new Vector3(cameraTargetPosition_.x - cameraSpeed * Time.deltaTime, cameraTargetPosition_.y, cameraTargetPosition_.z);
                     }
 
                     if (Input.GetKey(KeyCode.RightArrow))
                     {
-                        Vector3 newPosition = new Vector3(oldPosition.x + cameraSpeed * Time.deltaTime, oldPosition.y, oldPosition.z);
-                        mainCameraObject_.transform.position = newPosition;
+                        cameraTargetPosition_ = new Vector3(cameraTargetPosition_.x + cameraSpeed * Time.deltaTime, cameraTargetPosition_.y, cameraTargetPosition_.z);
                     }
 
-                }
+                    if (Input.GetKey(KeyCode.DownArrow))
+                    {
+                        cameraTargetPosition_ = new Vector3(cameraTargetPosition_.x, cameraTargetPosition_.y - cameraSpeed * Time.deltaTime, cameraTargetPosition_.z);
+                    }
 
-                // [TODO] Mouse wheel for zooming in and out
+                    if (Input.GetKey(KeyCode.UpArrow))
+                    {
+                        cameraTargetPosition_ = new Vector3(cameraTargetPosition_.x, cameraTargetPosition_.y + cameraSpeed * Time.deltaTime, cameraTargetPosition_.z);
+                    }
+
+                    //cameraTargetSize_ *= (Input.mouseScrollDelta.y - lastMouseScrollDelta_);
+                    cameraTargetSize_ = Mathf.Clamp(cameraTargetSize_ - Input.mouseScrollDelta.y, cameraSizeMin, cameraSizeMax);
+
+                }
 
             }
 
         }
+
+        lastMouseScrollDelta_ = Input.mouseScrollDelta.y;
+
+        float maxChange = cameraSpeed*Time.deltaTime;
+        mainCamera_.orthographicSize = Mathf.MoveTowards(mainCamera_.orthographicSize, cameraTargetSize_, maxChange);
+        mainCameraObject_.transform.position = Vector3.MoveTowards(mainCameraObject_.transform.position, cameraTargetPosition_, maxChange);
     }
 
     public void OnLevelLoaded()
@@ -154,6 +175,7 @@ public class GameLevel : MonoBehaviour
     public void OnLevelComplete()
     {
         levelComplete_ = true;
+        cameraTargetPosition_ = finishLine_.transform.position;
         Debug.Log("Completed level in " + levelTime_ + " second(s)");
 
         if (successTextPrefab)
@@ -169,16 +191,13 @@ public class GameLevel : MonoBehaviour
     {
         if (levelComplete_ == false)
         {
-            cameraSize_ = origCameraSize_;
-            mainCamera_.orthographicSize = cameraSize_;
-            mainCameraObject_.transform.position =
-                new Vector3(buildZone_.transform.position.x, buildZone_.transform.position.y, mainCameraObject_.transform.position.z);
+            cameraTargetSize_ = origCameraSize_;
+            cameraTargetPosition_ = new Vector3(buildZone_.transform.position.x, buildZone_.transform.position.y, mainCameraObject_.transform.position.z);
         }
     }
 
     public void OnPlayModeActivated()
     {
-        cameraSize_ = origCameraSize_;
-        mainCamera_.orthographicSize = cameraSize_;
+        cameraTargetSize_ = origCameraSize_;
     }
 }
