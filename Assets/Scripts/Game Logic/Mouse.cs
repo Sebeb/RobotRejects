@@ -61,7 +61,8 @@ public class Mouse : MonoBehaviour
             return;
         }
 
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition).SetZ(0);
+        // transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition).SetZ(0);
+        transform.position = ((Vector3)Get2DCoord()).SetZ(0);
         if (joint) { joint.target = transform.position; }
 
         if (Input.GetMouseButton(0) && !joint) { Pickup(); }
@@ -69,6 +70,29 @@ public class Mouse : MonoBehaviour
         else if (Input.GetMouseButtonDown(1)) { RecordKey(); }
         else if (!joint) { CheckTarget(); }
         UpdateTooltip();
+    }
+
+    private Vector2 Get2DCoord(float zValue = 0f)
+    {
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        float depth = zValue - ray.origin.z;
+        float zDirection = ray.direction.z;
+
+        if (Mathf.Approximately(zDirection, 0f) // Ray parallel to XY plane.
+            || depth * zDirection < 0f) // Ray looking away from plane.
+        {
+            // Error - this ray can't see the plane!
+            // This won't happen if your camera is looking at the scene plane.
+            return new Vector3(float.NaN, float.NaN, float.NaN);
+        }
+
+        // Calculate how many times we need to travel along the direction vector
+        // from the ray's origin before hitting our desired zValue:
+        float scale = depth / zDirection;
+
+        return ray.origin + scale * ray.direction;
     }
 
     private void UpdateTooltip()
