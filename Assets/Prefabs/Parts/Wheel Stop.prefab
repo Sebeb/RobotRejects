@@ -59,6 +59,29 @@ PolygonCollider2D:
       - {x: 0.235, y: -0.715}
       - {x: 0.295, y: -0.695}
       - {x: 0.36499998, y: -0.66499996}
+--- !u!114 &7461656513653727431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260625184464423888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627092466b83dde4a907facb63e587d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivots: []
+  connectedBodies: []
+  selectionPriority: 0
+  buildPosition: {x: 0, y: 0, z: 0}
+  buildRotation: {x: 0, y: 0, z: 0, w: 0}
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  spriteR: {fileID: 0}
+  outline: {fileID: 0}
+  wheelJoint: {fileID: 0}
+  breakingForce: Infinity
 --- !u!1001 &2008764279226591844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 9161021322636730804, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
         type: 3}
       propertyPath: m_Name
-      value: Wheel Stop
+      value: Wheel (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9161021322636730806, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
         type: 3}
@@ -142,8 +165,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 60c2b65cf5d710e41a90cb3edddd63d8,
         type: 3}
+    - target: {fileID: 9161021322636730807, guid: 790dbee15bdb84841a26e18b8a4dbd3a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.516184
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9161021322636730760, guid: 790dbee15bdb84841a26e18b8a4dbd3a, type: 3}
+    - {fileID: 9161021322636730763, guid: 790dbee15bdb84841a26e18b8a4dbd3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 790dbee15bdb84841a26e18b8a4dbd3a, type: 3}
 --- !u!1 &7260625184464423888 stripped
 GameObject:

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8226454349915096447}
   - component: {fileID: 7199109817413453829}
   - component: {fileID: 4535534442124707372}
-  - component: {fileID: 7682363715614068132}
   m_Layer: 0
   m_Name: Toxic Barrel
   m_TagString: Reset
@@ -131,15 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.02, y: 1.69}
   m_EdgeRadius: 0
---- !u!114 &7682363715614068132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8226454349915096446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e91d29a5dc593d409301f8d53ccb703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

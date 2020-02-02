@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -9.24
       objectReference: {fileID: 0}
+    - target: {fileID: 5033640335345600207, guid: 02c989209546fb74eb38bf58e50319c1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6960592443047411680, guid: 02c989209546fb74eb38bf58e50319c1,
         type: 3}
       propertyPath: m_Sprite
@@ -27,6 +32,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Head (1) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960592443047411693, guid: 02c989209546fb74eb38bf58e50319c1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5.784691
       objectReference: {fileID: 0}
     - target: {fileID: 6960592443047411694, guid: 02c989209546fb74eb38bf58e50319c1,
         type: 3}
@@ -5853,5 +5863,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6960592443047411694, guid: 02c989209546fb74eb38bf58e50319c1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02c989209546fb74eb38bf58e50319c1, type: 3}
